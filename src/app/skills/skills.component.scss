@@ -1,157 +1,167 @@
 .skills-text,
 .skills-text-rotated {
-    h2 {
-        width: 100%;
-        font-size: 7rem;
-        font-weight: 700;
-        margin: 0;
-        margin-bottom: 2rem;
-        -webkit-text-stroke-width: 3px;
-        -webkit-text-stroke-color: white;
-        color: transparent;
-        letter-spacing: 5px;
-        // background: pink;
-    }
+  h2 {
+    width: 100%;
+    font-size: 7rem;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 2rem;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: white;
+    color: transparent;
+    letter-spacing: 5px;
+    // background: pink;
+  }
 }
 
 .skills-text-rotated {
-    h2 {
-        margin-top: 3rem;
-        transform: rotateX(180deg);
-    }
+  h2 {
+    margin-top: 3rem;
+    transform: rotateX(180deg);
+  }
 }
 
 .scroll-container {
-    overflow-x: auto;
-    margin: 1rem;
-    padding: 1rem 0;
-    &::-webkit-scrollbar {
-        height: 10px;
-    }
-    &::-webkit-scrollbar-track {
-        background: transparent;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 5px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: rgb(95, 95, 95);
-        border-radius: 5px;
-    }
+  overflow-x: auto;
+  margin: 1rem;
+  padding: 1rem 0;
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(95, 95, 95);
+    border-radius: 5px;
+  }
 }
 
 #skills-container {
-    width: fit-content;
+  width: fit-content;
 }
 
 .skill-container {
-    box-sizing: border-box;
-    width: 100%;
-    perspective: 1000px;
-    overflow: hidden;
-    padding: 3rem;
-    &:hover {
-        img {
-            animation: alternate swivel 1s infinite ease-in-out;
-        }
+  box-sizing: border-box;
+  width: 100%;
+  perspective: 1000px;
+  overflow: hidden;
+  padding: 3rem;
+  &:hover {
+    img {
+      animation: alternate swivel 1s infinite ease-in-out;
     }
+  }
 }
 
 .skill {
-    position: relative;
-    padding: 0;
-    transform-style: preserve-3d;
+  position: relative;
+  padding: 0;
+  transform-style: preserve-3d;
+  width: 100%;
+  min-width: 8rem;
+  &::after {
+    content: "";
+    position: absolute;
     width: 100%;
-    min-width: 8rem;
-    &::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.9);
-        box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 10px;
-    }
-    img {
-        object-position: center;
-        padding: 1rem;
-        width: 80%;
-        height: 5rem;
-        transform: translateZ(3rem);
-        filter: grayscale(1);
-    }
-    .clip-img {
-        position: absolute;
-        top: 0;
-        filter: none;
-        clip-path: circle(0% at 50% 50%);
-    }
-    h3 {
-        transform: translateZ(2rem);
-    }
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 10px;
+  }
+  img {
+    object-position: center;
+    padding: 1rem;
+    width: 80%;
+    height: 5rem;
+    transform: translateZ(3rem);
+    filter: grayscale(1);
+  }
+  .clip-img {
+    position: absolute;
+    top: 0;
+    filter: none;
+    clip-path: circle(0% at 50% 50%);
+  }
+  h3 {
+    transform: translateZ(2rem);
+  }
 }
 
 .card-bg {
-    position: absolute;
-    z-index: -1;
-    top: 20px;
-    left: 20px;
-    width: 100%;
-    height: 100%;
-    transform: translateZ(-2rem);
+  position: absolute;
+  z-index: -1;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(-2rem);
 }
 
 #Javascript {
-    background-color: rgb(240, 220, 80);
+  background-color: rgb(240, 220, 80);
 }
 
 #Typescript {
-    background-color: rgb(0, 122, 204);
+  background-color: rgb(0, 122, 204);
 }
 
 #Java {
-    background-color: rgb(231, 111, 0);
+  background-color: rgb(231, 111, 0);
 }
 
 #Angular {
-    background-color: rgb(226, 50, 55);
+  background-color: rgb(226, 50, 55);
 }
 
 #HTML5 {
-    background-color: rgb(241, 101, 42);
+  background-color: rgb(241, 101, 42);
 }
 
 #CSS3 {
-    background-color: rgb(51, 169, 220);
+  background-color: rgb(51, 169, 220);
 }
 
 #Sass {
-    background-color: rgb(207, 100, 154);
+  background-color: rgb(207, 100, 154);
 }
 
 @keyframes swivel {
-    0% {
-        transform: rotateZ(-5deg) translateZ(3rem);
-    }
-    100% {
-        transform: rotateZ(5deg) translateZ(3rem);
-    }
+  0% {
+    transform: rotateZ(-5deg) translateZ(3rem);
+  }
+  100% {
+    transform: rotateZ(5deg) translateZ(3rem);
+  }
 }
 
 @media (max-width: 480px) {
-    .scroll-container {
-        &::-webkit-scrollbar {
-            height: 0px;
-        }
-        &::-webkit-scrollbar-track {
-            background: transparent;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-        }
-        &::-webkit-scrollbar-thumb {
-            background: rgb(95, 95, 95);
-            border-radius: 5px;
-        }
+  .scroll-container {
+    &::-webkit-scrollbar {
+      height: 0px;
     }
-    .skill-container {
-        padding: 2rem;
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
     }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(95, 95, 95);
+      border-radius: 5px;
+    }
+  }
+
+  .skill img {
+    filter: none;
+  }
+
+  .skill-container {
+    padding: 2rem;
+    &:hover {
+      img {
+        animation: none;
+      }
+    }
+  }
 }

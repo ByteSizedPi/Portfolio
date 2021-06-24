@@ -40,7 +40,7 @@ export class TopNavComponent implements OnInit {
     //   window.scrollBy(0, -3 * 16);
     // }
 
-    // setTimeout(() => this.toggleNav(false), 50);
+    setTimeout(() => this.toggleNav(false), 10);
   }
 
   toggleNav(toggle: boolean = true) {

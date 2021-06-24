@@ -50,11 +50,10 @@ export class HomeComponent implements OnInit {
       let perc = this.constrain(1 - window.scrollY / bg.clientHeight, 0, 1);
 
 
-      bg.style.top = Math.floor((perc - 1) * bg.clientHeight * 0.5) + "px";
+      bg.style.opacity = `${perc - 0.1}`;
       if (!this.mediaQueries.isMobile()) {
-
+        bg.style.top = Math.floor((perc - 1) * bg.clientHeight * 0.5) + "px";
         bg.style.animation = "none";
-        bg.style.opacity = `${perc - 0.1}`;
         bg.style.transform = `scale(${1 + (0.4 * (1 - perc))})`;
       }
 

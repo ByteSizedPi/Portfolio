@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { MediaQueriesService } from './../media-queries.service';
 
 @Component({
   selector: 'app-skills',
@@ -16,7 +17,7 @@ export class SkillsComponent implements OnInit, AfterViewInit {
     { name: "Sass", link: "sass.svg" },
   ]
 
-  constructor() { }
+  constructor(private mediaQueries: MediaQueriesService) { }
 
   ngOnInit(): void {
 
@@ -38,20 +39,24 @@ export class SkillsComponent implements OnInit, AfterViewInit {
     document.querySelectorAll(".skill-container")
       .forEach((element: HTMLElement) => {
         element.addEventListener("mouseleave", (e: MouseEvent) => {
-          element.querySelector<HTMLElement>(".skill").style.transition = ".2s";
-          element.querySelector<HTMLElement>(".skill").style.transform = "none";
-          element.querySelector<HTMLElement>(".clip-img").style.clipPath = "circle(0% at 50% 50%)";
+          if (!this.mediaQueries.isMobile()) {
+            element.querySelector<HTMLElement>(".skill").style.transition = ".2s";
+            element.querySelector<HTMLElement>(".skill").style.transform = "none";
+            element.querySelector<HTMLElement>(".clip-img").style.clipPath = "circle(0% at 50% 50%)";
+          }
         });
 
         element.addEventListener("mousemove", (e: MouseEvent) => {
-          let box = element.getBoundingClientRect();
-          let xoffset = e.clientX - box.left - box.width / 2;
-          let yoffset = e.clientY - box.top - box.height / 2;
-          let xdeg = 360 * xoffset / (box.width * 5);
-          let ydeg = 360 * yoffset / (box.height * 5);
-          element.querySelector<HTMLElement>(".skill").style.transform = `rotateX(${-ydeg}deg) rotateY(${xdeg}deg)`;
-          element.querySelector<HTMLElement>(".skill").style.transition = "none";
-          element.querySelector<HTMLElement>(".clip-img").style.clipPath = "circle(100% at 50% 50%)";
+          if (!this.mediaQueries.isMobile()) {
+            let box = element.getBoundingClientRect();
+            let xoffset = e.clientX - box.left - box.width / 2;
+            let yoffset = e.clientY - box.top - box.height / 2;
+            let xdeg = 360 * xoffset / (box.width * 5);
+            let ydeg = 360 * yoffset / (box.height * 5);
+            element.querySelector<HTMLElement>(".skill").style.transform = `rotateX(${-ydeg}deg) rotateY(${xdeg}deg)`;
+            element.querySelector<HTMLElement>(".skill").style.transition = "none";
+            element.querySelector<HTMLElement>(".clip-img").style.clipPath = "circle(100% at 50% 50%)";
+          }
         });
         element.addEventListener("touchmove", () => element.querySelector<HTMLElement>(".skill").style.transform = "none");
       });
