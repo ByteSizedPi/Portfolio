@@ -1,0 +1,71 @@
+import { MediaQueriesService } from './../media-queries.service';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent implements OnInit {
+
+  constructor(private mediaQueries: MediaQueriesService) { }
+
+  ngOnInit(): void {
+    this.scrollEvent();
+    this.circleClip();
+    this.mediaQueries.init();
+  }
+
+  constrain(num: number, min: number, max: number) {
+    if (num < min) return 0;
+    if (num > max) return max;
+    return num;
+  }
+
+  circleClip() {
+    let root = document.documentElement;
+    document.getElementById("developer").addEventListener("mousemove", (e: MouseEvent) => {
+      let box = document.getElementById("developer").getBoundingClientRect();
+      let xoffset = e.clientX - box.left;
+      let yoffset = e.clientY - box.top;
+      let xperc = 100 * xoffset / box.width;
+      let yperc = 100 * yoffset / box.height;
+      if (!this.mediaQueries.isMobile()) {
+        root.style.setProperty('--centroid', "circle(30% at " + xperc + "% " + yperc + "%)");
+      }
+
+    });
+    document.getElementById("developer").addEventListener("mouseleave", e => {
+      root.style.setProperty('--centroid', "circle(0% at 0% 0%)");
+    });
+  }
+
+  scrollEvent() {
+    const bg = document.getElementById("bg");
+    const text = document.getElementById("text");
+
+    window.addEventListener("scroll", () => {
+
+      //set filter + img top
+      let perc = this.constrain(1 - window.scrollY / bg.clientHeight, 0, 1);
+
+
+      bg.style.top = Math.floor((perc - 1) * bg.clientHeight * 0.5) + "px";
+      if (!this.mediaQueries.isMobile()) {
+
+        bg.style.animation = "none";
+        bg.style.opacity = `${perc - 0.1}`;
+        bg.style.transform = `scale(${1 + (0.4 * (1 - perc))})`;
+      }
+
+      //set text top
+      perc = this.constrain(1 - window.scrollY / text.clientHeight, 0, 1);
+
+      //text animation
+      perc = this.constrain(window.scrollY / bg.clientHeight, 0, 1);
+      text.style.opacity = `${1 - perc * 1.5}`;
+      text.style.transform = `scale(${1 + 0.4 * perc})`;
+    });
+  };
+
+}

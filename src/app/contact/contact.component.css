@@ -1,0 +1,105 @@
+section {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+  padding: 2rem;
+  margin: 15rem 1rem 0 1rem;
+}
+
+section .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+}
+
+ul {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+ul li {
+  overflow: hidden;
+  position: relative;
+  border-radius: 1rem;
+  -webkit-box-shadow: 5px 5px 10px 4px rgba(44, 18, 18, 0.301), 1px 1px 5px 1px rgba(255, 255, 255, 0.35) inset, -1px -1px 5px 1px rgba(29, 29, 29, 0.35) inset;
+          box-shadow: 5px 5px 10px 4px rgba(44, 18, 18, 0.301), 1px 1px 5px 1px rgba(255, 255, 255, 0.35) inset, -1px -1px 5px 1px rgba(29, 29, 29, 0.35) inset;
+  font-size: 1rem;
+  background: #F2D45CAA;
+  list-style-type: none;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  width: calc(33vw - 6rem - 0.67rem);
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: calc(1rem - 2px);
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+}
+
+ul li img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-filter: contrast(1.5);
+          filter: contrast(1.5);
+}
+
+ul li a {
+  position: relative;
+  z-index: 1;
+}
+
+ul li i {
+  margin-right: .5rem;
+}
+
+h1 {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 5rem;
+  color: white;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: 1rem;
+  margin-bottom: 3rem;
+}
+
+h3 {
+  font-family: "Poppins";
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  margin-left: .5rem;
+}
+/*# sourceMappingURL=contact.component.css.map */

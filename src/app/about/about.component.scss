@@ -1,0 +1,94 @@
+section {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 6rem;
+  overflow: hidden;
+  margin-bottom: 10rem;
+}
+
+.text {
+  position: relative;
+  justify-self: center;
+  h2 {
+    width: fit-content;
+    color: var(--green);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    justify-self: center;
+  }
+  p {
+    margin: 3rem 5rem 3rem 1rem;
+    color: rgb(224, 224, 224);
+    font-weight: 200;
+    box-sizing: border-box;
+  }
+}
+
+img {
+  position: relative;
+  width: 100%;
+  place-self: center;
+  object-fit: cover;
+}
+
+.btn-liquid {
+  display: inline-block;
+  position: relative;
+  width: 160px;
+  height: 52px;
+  color: var(--deep-blue);
+  font: 700 1.2rem/60px "Poppins", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 26px;
+  background: var(--green);
+}
+
+.btn-liquid .inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+button {
+  position: relative;
+  z-index: 2;
+  width: 160px;
+  height: 52px;
+  margin-left: 2rem;
+  border: 2px solid var(--green);
+  color: var(--green);
+  background: transparent;
+  outline: none;
+  border-radius: 26px;
+  font: 700 1.2rem "Poppins", sans-serif;
+  cursor: pointer;
+  // transition: background .1s;
+  &:hover,
+  &:active {
+    background: #15694763;
+  }
+}
+
+@media (min-width: 480px) {
+  .btn-liquid {
+    background: none;
+  }
+}
+
+@media (max-width: 768px) {
+  img {
+    display: none;
+  }
+
+  section {
+    grid-template-columns: 1fr;
+  }
+
+  .row {
+    justify-content: space-between;
+  }
+}

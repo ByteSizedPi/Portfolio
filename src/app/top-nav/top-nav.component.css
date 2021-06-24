@@ -1,0 +1,222 @@
+nav {
+  top: 0;
+  position: fixed;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  color: white;
+  padding-left: .5rem;
+  background-color: #191932AA;
+  -webkit-backdrop-filter: blur(8px) brightness(0.8);
+          backdrop-filter: blur(8px) brightness(0.8);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.342) 0px 20px 30px -10px;
+          box-shadow: rgba(0, 0, 0, 0.342) 0px 20px 30px -10px;
+}
+
+h2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 3rem;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+.links {
+  -webkit-transition: background-color 0s .3s;
+  transition: background-color 0s .3s;
+}
+
+#bars {
+  position: absolute;
+  top: 13.925px;
+  right: 13.925px;
+  width: 1.8rem;
+}
+
+#bars:active .cls-1 {
+  stroke: var(--yellow);
+}
+
+#bars .cls-1 {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+div {
+  margin: 0;
+  padding: 0 .75rem;
+  font-size: 1rem;
+  font-weight: 200;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  -webkit-transition: color .2s;
+  transition: color .2s;
+  font-weight: 200;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 3rem;
+}
+
+div:hover {
+  color: var(--yellow);
+}
+
+div:before, div:after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: .6rem;
+  right: 0;
+  height: 3px;
+  background-color: var(--yellow);
+  border-radius: 4px;
+  width: calc(100% - 1.2rem);
+}
+
+div:before {
+  opacity: 0;
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+  -webkit-transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s;
+  transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+div:after {
+  opacity: 0;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.link-active {
+  color: var(--yellow);
+  font-weight: 500;
+}
+
+.link-active:before, .link-active:after {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.link-active:before {
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.link-active:after {
+  -webkit-transition: opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s;
+  transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (max-width: 768px) {
+  .links {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-top: 3rem;
+    height: 100vh;
+    width: 6rem;
+    padding: 1rem;
+    -webkit-transform: translateX(8rem);
+            transform: translateX(8rem);
+    background: var(--deep-blue);
+    -webkit-transition: -webkit-transform .1s;
+    transition: -webkit-transform .1s;
+    transition: transform .1s;
+    transition: transform .1s, -webkit-transform .1s;
+    -webkit-animation: fade-in .4s forwards;
+            animation: fade-in .4s forwards;
+  }
+  .nav-open {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  nav {
+    padding: 0 1.5rem;
+  }
+  .links {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #bars {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  nav {
+    padding: 0 1.5rem;
+  }
+  .links {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #bars {
+    display: none;
+  }
+}
+
+@media (min-width: 1201px) {
+  nav {
+    padding: 0 1.5rem;
+  }
+  .links {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #bars {
+    display: none;
+  }
+}
+/*# sourceMappingURL=top-nav.component.css.map */

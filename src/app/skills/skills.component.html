@@ -1,0 +1,45 @@
+<section id="skills">
+    <div class="row skills-text">
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2 class="main-text">Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+    </div>
+    <div class="scroll-container">
+        <div id="skills-container" class="row">
+            <span class="skill-container center" *ngFor="let skill of skills">
+                <div class="skill center column" [ngClass]="skill.name">
+                    <img [src]="'../../assets/Graphics/' + skill.link" alt=" ">
+                    <img [src]="'../../assets/Graphics/' + skill.link" class="clip-img" alt=" ">
+                    <h3>{{ skill.name }}</h3>
+                    <div class="card-bg" [id]="skill.name"></div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <div class="row skills-text-rotated ">
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2 class="main-text ">Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+        <h2>Skills</h2>
+    </div>
+</section>

@@ -1,0 +1,284 @@
+img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(0.5) sepia(0.6);
+}
+
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: #20265a79;
+    }
+    opacity: 0;
+    animation: fade-in .5s .5s forwards;
+}
+
+#text {
+    width: 100vw;
+    .text-container {
+        margin-bottom: 3rem;
+    }
+    #name {
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+        color: transparent;
+        opacity: 0;
+        animation: slide-left 1s .5s forwards;
+        div {
+            position: relative;
+            &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: attr(data-text);
+                text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+                color: var(--yellow);
+            }
+        }
+    }
+    #surname {
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+        color: var(--yellow);
+        opacity: 0;
+        animation: slide-left 1s .5s forwards;
+    }
+    #developer {
+        cursor: pointer;
+        position: relative;
+        font-weight: 500;
+        margin: 0;
+        padding: 0.5rem;
+        text-shadow: 0px 0px 10px rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        opacity: 0;
+        animation: slide-right 1s .5s forwards;
+        &::after {
+            -webkit-text-stroke: 2px transparent;
+            pointer-events: none;
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 0.5rem;
+            background-image: url(https://media.giphy.com/media/xThuW2fbatiCsyY3zW/giphy.gif);
+            filter: brightness(1.5) saturate(1.5);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            clip-path: var(--centroid);
+        }
+    }
+    #profile {
+        font-weight: 200;
+        margin: 0;
+        padding: 0;
+        text-shadow: 0px 0px 12px rgb(0, 0, 0), 0px 0px 12px rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        opacity: 0;
+        animation: fade-in 2s .5s forwards;
+    }
+    @keyframes bounce {
+        0% {
+            transform: translateY(1rem) scaleY(0.5);
+        }
+        10% {
+            transform: translateY(0rem) scaleY(0.5);
+        }
+        20% {
+            transform: translateY(-2rem) scaleY(1.2);
+        }
+        70% {
+            transform: translateY(2rem) scaleY(0.8);
+        }
+        100% {
+            transform: scaleY(1);
+        }
+    }
+}
+
+#divider {
+    height: 2px;
+    box-shadow: 0px 0px 8px 1px black;
+    margin-bottom: 1rem;
+    border: none;
+    background: white;
+    opacity: 0;
+    animation: expand 1s .5s forwards;
+}
+
+#scroll {
+    margin-top: 7rem;
+    border: 2px solid rgb(173, 173, 173);
+    background: rgba(0, 0, 40, 0.3);
+    width: 25px;
+    height: 40px;
+    border-radius: 15px;
+    opacity: 0;
+    animation: fade-in .5s 1s forwards;
+    hr {
+        place-self: center;
+        border: none;
+        width: 4px;
+        height: 10px;
+        border-radius: 2px;
+        background-color: rgb(173, 173, 173);
+        animation: slide 1.25s ease-out forwards infinite;
+    }
+    @keyframes slide {
+        0% {
+            transform: translateY(-2px);
+            height: 2px;
+            opacity: 0;
+        }
+        20% {
+            transform: translateY(2px);
+            height: 6px;
+            opacity: 1;
+        }
+        50% {
+            transform: translateY(4px);
+            height: 12px;
+            opacity: 1;
+        }
+        70% {
+            transform: translateY(8px);
+            height: 8px;
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(10px);
+            height: 4px;
+            opacity: 0;
+        }
+    }
+}
+
+@keyframes expand {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 10rem;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(50vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(-50vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    img,
+    #text,
+    #bg-filter {
+        height: 100vh;
+    }
+    .text-container {
+        display: flex;
+        flex-direction: column;
+    }
+    #text {
+        #name {
+            font-size: 5rem;
+            line-height: 5.5rem;
+        }
+        #surname {
+            font-size: 4.5rem;
+            line-height: 5rem;
+        }
+        #developer {
+            font-size: 3rem;
+            line-height: 3.5rem;
+        }
+        #profile {
+            font-size: 2.5rem;
+            line-height: 3rem;
+        }
+    }
+}
+
+@media (min-width: 769px) {
+    #text,
+    #bg {
+        height: 100vh;
+    }
+    #text {
+        .text-container {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 1.5rem;
+        }
+        #name {
+            margin-right: 1rem;
+            font-size: 6rem;
+            line-height: 6.5rem;
+        }
+        #surname {
+            font-size: 5.5rem;
+            line-height: 5rem;
+        }
+        #developer {
+            margin-right: 1rem;
+            font-size: 3.5rem;
+            line-height: 4rem;
+        }
+        #profile {
+            font-size: 3rem;
+            line-height: 4rem;
+        }
+    }
+    #text #name {
+        div {
+            position: relative;
+            &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: attr(data-text);
+                text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+                color: var(--yellow);
+            }
+            &:hover::after {
+                animation: bounce .3s forwards linear;
+                cursor: pointer;
+            }
+        }
+    }
+}

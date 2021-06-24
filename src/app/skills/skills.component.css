@@ -1,0 +1,185 @@
+.skills-text h2,
+.skills-text-rotated h2 {
+  width: 100%;
+  font-size: 7rem;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 2rem;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  color: transparent;
+  letter-spacing: 5px;
+}
+
+.skills-text-rotated h2 {
+  margin-top: 3rem;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.scroll-container {
+  overflow-x: auto;
+  margin: 1rem;
+  padding: 1rem 0;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #5f5f5f;
+  border-radius: 5px;
+}
+
+#skills-container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.skill-container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  overflow: hidden;
+  padding: 3rem;
+}
+
+.skill-container:hover img {
+  -webkit-animation: alternate swivel 1s infinite ease-in-out;
+          animation: alternate swivel 1s infinite ease-in-out;
+}
+
+.skill {
+  position: relative;
+  padding: 0;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  width: 100%;
+  min-width: 12rem;
+}
+
+.skill::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 10px;
+          box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 10px;
+}
+
+.skill img {
+  -o-object-position: center;
+     object-position: center;
+  padding: 1rem;
+  width: 80%;
+  height: 10rem;
+  -webkit-transform: translateZ(3rem);
+          transform: translateZ(3rem);
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+.skill .clip-img {
+  position: absolute;
+  top: 0;
+  -webkit-filter: none;
+          filter: none;
+  -webkit-clip-path: circle(0% at 50% 50%);
+          clip-path: circle(0% at 50% 50%);
+}
+
+.skill h3 {
+  -webkit-transform: translateZ(2rem);
+          transform: translateZ(2rem);
+}
+
+.card-bg {
+  position: absolute;
+  z-index: -1;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateZ(-2rem);
+          transform: translateZ(-2rem);
+}
+
+#Javascript {
+  background-color: #f0dc50;
+}
+
+#Typescript {
+  background-color: #007acc;
+}
+
+#Java {
+  background-color: #e76f00;
+}
+
+#Angular {
+  background-color: #e23237;
+}
+
+#HTML5 {
+  background-color: #f1652a;
+}
+
+#CSS3 {
+  background-color: #33a9dc;
+}
+
+#Sass {
+  background-color: #cf649a;
+}
+
+@-webkit-keyframes swivel {
+  0% {
+    -webkit-transform: rotateZ(-5deg) translateZ(3rem);
+            transform: rotateZ(-5deg) translateZ(3rem);
+  }
+  100% {
+    -webkit-transform: rotateZ(5deg) translateZ(3rem);
+            transform: rotateZ(5deg) translateZ(3rem);
+  }
+}
+
+@keyframes swivel {
+  0% {
+    -webkit-transform: rotateZ(-5deg) translateZ(3rem);
+            transform: rotateZ(-5deg) translateZ(3rem);
+  }
+  100% {
+    -webkit-transform: rotateZ(5deg) translateZ(3rem);
+            transform: rotateZ(5deg) translateZ(3rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-container::-webkit-scrollbar {
+    height: 0px;
+  }
+  .scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  .scroll-container::-webkit-scrollbar-thumb {
+    background: #5f5f5f;
+    border-radius: 5px;
+  }
+  .skill-container {
+    padding: 2rem;
+  }
+}
+/*# sourceMappingURL=skills.component.css.map */
