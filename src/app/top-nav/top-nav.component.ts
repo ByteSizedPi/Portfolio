@@ -33,13 +33,6 @@ export class TopNavComponent implements OnInit {
     this.links[index].isActive = true;
     this.prevLink = index;
 
-    // if (clicked) {
-    //   document.getElementById(this.links[index].text)
-    //     .scrollIntoView(true);
-
-    //   window.scrollBy(0, -3 * 16);
-    // }
-
     setTimeout(() => this.toggleNav(false), 10);
   }
 

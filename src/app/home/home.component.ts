@@ -55,15 +55,12 @@ export class HomeComponent implements OnInit {
         bg.style.top = Math.floor((perc - 1) * bg.clientHeight * 0.5) + "px";
         bg.style.animation = "none";
         bg.style.transform = `scale(${1 + (0.4 * (1 - perc))})`;
+
+        //text animation
+        perc = this.constrain(window.scrollY / bg.clientHeight, 0, 1);
+        text.style.opacity = `${1 - perc * 1.5}`;
+        text.style.transform = `scale(${1 + 0.4 * perc})`;
       }
-
-      //set text top
-      perc = this.constrain(1 - window.scrollY / text.clientHeight, 0, 1);
-
-      //text animation
-      perc = this.constrain(window.scrollY / bg.clientHeight, 0, 1);
-      text.style.opacity = `${1 - perc * 1.5}`;
-      text.style.transform = `scale(${1 + 0.4 * perc})`;
     });
   };
 
