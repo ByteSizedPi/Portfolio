@@ -87,4 +87,19 @@ button:hover, button:active {
     background: none;
   }
 }
+
+@media (max-width: 768px) {
+  img {
+    display: none;
+  }
+  section {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .row {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
 /*# sourceMappingURL=about.component.css.map */

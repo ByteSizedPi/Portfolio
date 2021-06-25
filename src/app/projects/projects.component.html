@@ -1,8 +1,8 @@
 <h1 id="projects">Projects</h1>
 <section class="row">
     <div class="project-container column" *ngFor="let project of projects; index as i">
-        <img [src]="'../../assets/Graphics/' + project.imgLink" [alt]="project.name" class="project-img bg-img">
-        <img [src]="'../../assets/Graphics/' + project.imgLink" [alt]="project.name" class="project-img clip-img">
+        <img [src]="'./assets/Graphics/' + project.imgLink" [alt]="project.name" class="project-img bg-img">
+        <img [src]="'./assets/Graphics/' + project.imgLink" [alt]="project.name" class="project-img clip-img">
         <div class="text-container row space-between">
             <div class="column">
                 <h2>{{ project.name }}</h2>

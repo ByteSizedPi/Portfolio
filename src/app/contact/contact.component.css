@@ -7,15 +7,6 @@ section {
   margin: 15rem 1rem 0 1rem;
 }
 
-section .bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  border-top-left-radius: 3rem;
-  border-top-right-radius: 3rem;
-}
-
 ul {
   position: relative;
   padding: 0;
@@ -23,59 +14,27 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 ul li {
   overflow: hidden;
   position: relative;
-  border-radius: 1rem;
-  -webkit-box-shadow: 5px 5px 10px 4px rgba(44, 18, 18, 0.301), 1px 1px 5px 1px rgba(255, 255, 255, 0.35) inset, -1px -1px 5px 1px rgba(29, 29, 29, 0.35) inset;
-          box-shadow: 5px 5px 10px 4px rgba(44, 18, 18, 0.301), 1px 1px 5px 1px rgba(255, 255, 255, 0.35) inset, -1px -1px 5px 1px rgba(29, 29, 29, 0.35) inset;
-  font-size: 1rem;
-  background: #F2D45CAA;
+  border-radius: 0.5rem;
+  background-color: #61542152;
+  color: var(--yellow);
   list-style-type: none;
-  padding: 1.5rem;
+  padding: 1rem;
   margin: 1rem 0;
-  width: calc(33vw - 6rem - 0.67rem);
-}
-
-ul li::before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: calc(100% - 2px);
-  height: calc(100% - 2px);
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: calc(1rem - 2px);
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
-}
-
-ul li img {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  -webkit-filter: contrast(1.5);
-          filter: contrast(1.5);
-}
-
-ul li a {
-  position: relative;
-  z-index: 1;
+  min-width: 33vw;
 }
 
 ul li i {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 h1 {
@@ -96,10 +55,50 @@ h1 {
 }
 
 h3 {
+  font-size: 1.5rem;
   font-family: "Poppins";
-  font-weight: 400;
+  font-weight: 300;
   margin: 0;
   padding: 0;
-  margin-left: .5rem;
+  margin-left: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--yellow);
+  background-color: #61542152;
+  padding: 0.75rem;
+  margin-left: 0.5rem;
+  border-radius: 0.3rem;
+  -webkit-transition: background 0.1s;
+  transition: background 0.1s;
+}
+
+a:hover {
+  background-color: #b19a3f52;
+}
+
+@media (max-width: 480px) {
+  li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  h3, a {
+    font-size: .8rem;
+  }
+  a {
+    margin-top: .5rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
 }
 /*# sourceMappingURL=contact.component.css.map */

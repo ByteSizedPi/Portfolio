@@ -18,8 +18,8 @@
         <div id="skills-container" class="row">
             <span class="skill-container center" *ngFor="let skill of skills">
                 <div class="skill center column" [ngClass]="skill.name">
-                    <img [src]="'../../assets/Graphics/' + skill.link" alt=" ">
-                    <img [src]="'../../assets/Graphics/' + skill.link" class="clip-img" alt=" ">
+                    <img [src]="'./assets/Graphics/' + skill.link" alt=" ">
+                    <img [src]="'./assets/Graphics/' + skill.link" class="clip-img" alt=" ">
                     <h3>{{ skill.name }}</h3>
                     <div class="card-bg" [id]="skill.name"></div>
                 </div>

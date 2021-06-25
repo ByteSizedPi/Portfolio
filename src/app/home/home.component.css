@@ -15,8 +15,8 @@ img {
   left: 0;
   width: 100vw;
   opacity: 0;
-  -webkit-animation: fade-in .5s .5s forwards;
-          animation: fade-in .5s .5s forwards;
+  -webkit-animation: fade-in 0.5s 0.5s forwards;
+          animation: fade-in 0.5s 0.5s forwards;
 }
 
 #bg::after {
@@ -43,8 +43,8 @@ img {
   padding: 0;
   color: transparent;
   opacity: 0;
-  -webkit-animation: slide-left 1s .5s forwards;
-          animation: slide-left 1s .5s forwards;
+  -webkit-animation: slide-left 1s 0.5s forwards;
+          animation: slide-left 1s 0.5s forwards;
 }
 
 #text #name div {
@@ -67,8 +67,8 @@ img {
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
   color: var(--yellow);
   opacity: 0;
-  -webkit-animation: slide-left 1s .5s forwards;
-          animation: slide-left 1s .5s forwards;
+  -webkit-animation: slide-left 1s 0.5s forwards;
+          animation: slide-left 1s 0.5s forwards;
 }
 
 #text #developer {
@@ -80,8 +80,8 @@ img {
   text-shadow: 0px 0px 10px black;
   color: white;
   opacity: 0;
-  -webkit-animation: slide-right 1s .5s forwards;
-          animation: slide-right 1s .5s forwards;
+  -webkit-animation: slide-right 1s 0.5s forwards;
+          animation: slide-right 1s 0.5s forwards;
 }
 
 #text #developer::after {
@@ -112,8 +112,8 @@ img {
   text-shadow: 0px 0px 12px black, 0px 0px 12px black;
   color: white;
   opacity: 0;
-  -webkit-animation: fade-in 2s .5s forwards;
-          animation: fade-in 2s .5s forwards;
+  -webkit-animation: fade-in 2s 0.5s forwards;
+          animation: fade-in 2s 0.5s forwards;
 }
 
 @-webkit-keyframes bounce {
@@ -170,8 +170,8 @@ img {
   border: none;
   background: white;
   opacity: 0;
-  -webkit-animation: expand 1s .5s forwards;
-          animation: expand 1s .5s forwards;
+  -webkit-animation: expand 1s 0.5s forwards;
+          animation: expand 1s 0.5s forwards;
 }
 
 #scroll {
@@ -182,8 +182,8 @@ img {
   height: 40px;
   border-radius: 15px;
   opacity: 0;
-  -webkit-animation: fade-in .5s 1s forwards;
-          animation: fade-in .5s 1s forwards;
+  -webkit-animation: fade-in 0.5s 1s forwards;
+          animation: fade-in 0.5s 1s forwards;
 }
 
 #scroll hr {
@@ -415,8 +415,8 @@ img {
     color: var(--yellow);
   }
   #text #name div:hover::after {
-    -webkit-animation: bounce .3s forwards linear;
-            animation: bounce .3s forwards linear;
+    -webkit-animation: bounce 0.3s forwards linear;
+            animation: bounce 0.3s forwards linear;
     cursor: pointer;
   }
 }
