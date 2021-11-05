@@ -1,14 +1,17 @@
 import { MediaQueriesService } from './../media-queries.service';
 import { Component, OnInit } from '@angular/core';
+import { Helpers } from 'src/services/Helpers';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent extends Helpers implements OnInit {
 
-  constructor(private mediaQueries: MediaQueriesService) { }
+  constructor(private mediaQueries: MediaQueriesService) {
+    super();
+  }
 
   ngOnInit(): void {
     this.scrollEvent();
@@ -16,16 +19,11 @@ export class HomeComponent implements OnInit {
     this.mediaQueries.init();
   }
 
-  constrain(num: number, min: number, max: number) {
-    if (num < min) return 0;
-    if (num > max) return max;
-    return num;
-  }
-
   circleClip() {
+    let dev = this.Id("developer");
     let root = document.documentElement;
-    document.getElementById("developer").addEventListener("mousemove", (e: MouseEvent) => {
-      let box = document.getElementById("developer").getBoundingClientRect();
+    dev.addEventListener("mousemove", (e: MouseEvent) => {
+      let box = dev.getBoundingClientRect();
       let xoffset = e.clientX - box.left;
       let yoffset = e.clientY - box.top;
       let xperc = 100 * xoffset / box.width;
@@ -35,14 +33,14 @@ export class HomeComponent implements OnInit {
       }
 
     });
-    document.getElementById("developer").addEventListener("mouseleave", e => {
+    dev.addEventListener("mouseleave", e => {
       root.style.setProperty('--centroid', "circle(0% at 0% 0%)");
     });
   }
 
   scrollEvent() {
-    const bg = document.getElementById("bg");
-    const text = document.getElementById("text");
+    const bg = this.Id("bg");
+    const text = this.Id("text");
 
     window.addEventListener("scroll", () => {
 

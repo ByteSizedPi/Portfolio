@@ -1,16 +1,12 @@
-img {
-  width: 100vw;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: grayscale(0.5) sepia(0.6);
-}
-
 #bg {
   position: fixed;
+  width: 100vw;
   top: 0;
   left: 0;
   width: 100vw;
+  opacity: 0;
+  animation: fade-in 0.5s 0.5s forwards;
+
   &::after {
     position: absolute;
     top: 0;
@@ -20,53 +16,87 @@ img {
     height: 100%;
     background: #20265a79;
   }
-  opacity: 0;
-  animation: fade-in 0.5s 0.5s forwards;
+
+  img {
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(0.5) sepia(0.6);
+  }
 }
 
 #text {
   width: 100vw;
-  .text-container {
-    margin-bottom: 3rem;
+  position: relative;
+  height: fit-content;
+
+  .bg {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 5.25rem;
+    background-color: var(--yellow);
+    padding: 0.25rem;
+
+    #portrait {
+      height: 10rem;
+      border-radius: 5rem;
+    }
   }
+
   #name {
+    pointer-events: none;
     font-weight: 600;
-    margin: 0;
-    padding: 0;
-    color: transparent;
-    opacity: 0;
-    animation: slide-left 1s 0.5s forwards;
     div {
-      position: relative;
-      &::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: attr(data-text);
-        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
-        color: var(--yellow);
+      opacity: 0;
+      color: transparent;
+      transform: scale(0);
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+      @for $i from 1 through 5 {
+        &:nth-of-type(#{$i}) {
+          animation: bob-in
+            0.5s
+            #{$i *
+            100}ms
+            forwards
+            cubic-bezier(0.47, 1.64, 0.41, 0.8);
+        }
       }
     }
   }
+
   #surname {
+    pointer-events: none;
     font-weight: 400;
-    margin: 0;
-    padding: 0;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
-    color: var(--yellow);
-    opacity: 0;
-    animation: slide-left 1s 0.5s forwards;
+    div {
+      opacity: 0;
+      color: transparent;
+      transform: scale(0);
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+      @for $i from 1 through 6 {
+        &:nth-of-type(#{$i}) {
+          animation: bob-in
+            0.5s
+            #{($i + 5) *
+            100}ms
+            forwards
+            cubic-bezier(0.47, 1.64, 0.41, 0.8);
+        }
+      }
+    }
   }
+
   #developer {
-    cursor: pointer;
     position: relative;
     font-weight: 500;
     margin: 0;
     padding: 0.5rem;
     text-shadow: 0px 0px 10px rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    opacity: 0;
-    animation: slide-right 1s 0.5s forwards;
+    color: white;
+    animation: drop-flip 0.5s 1s forwards;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+
     &::after {
       -webkit-text-stroke: 2px transparent;
       pointer-events: none;
@@ -86,42 +116,21 @@ img {
       clip-path: var(--centroid);
     }
   }
+
   #profile {
+    pointer-events: none;
     font-weight: 200;
     margin: 0;
     padding: 0;
-    text-shadow: 0px 0px 12px rgb(0, 0, 0), 0px 0px 12px rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    opacity: 0;
-    animation: fade-in 2s 0.5s forwards;
-  }
-  @keyframes bounce {
-    0% {
-      transform: translateY(1rem) scaleY(0.5);
-    }
-    10% {
-      transform: translateY(0rem) scaleY(0.5);
-    }
-    20% {
-      transform: translateY(-2rem) scaleY(1.2);
-    }
-    70% {
-      transform: translateY(2rem) scaleY(0.8);
-    }
-    100% {
-      transform: scaleY(1);
-    }
+    // text-shadow: 0px 0px 12px rgb(0, 0, 0), 0px 0px 12px rgb(0, 0, 0);
+    color: white;
+    animation: slide-right 0.4s 1.4s forwards;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
   }
 }
 
-#divider {
-  height: 2px;
-  box-shadow: 0px 0px 8px 1px black;
-  margin-bottom: 1rem;
-  border: none;
-  background: white;
-  opacity: 0;
-  animation: expand 1s 0.5s forwards;
+app-media-links {
+  margin-top: 1rem;
 }
 
 #scroll {
@@ -130,9 +139,11 @@ img {
   background: rgba(0, 0, 40, 0.3);
   width: 25px;
   height: 40px;
+  min-height: 40px;
   border-radius: 15px;
   opacity: 0;
-  animation: fade-in 0.5s 1s forwards;
+  animation: fade-in 1s 2s forwards;
+
   hr {
     place-self: center;
     border: none;
@@ -142,6 +153,7 @@ img {
     background-color: rgb(173, 173, 173);
     animation: slide 1.25s ease-out forwards infinite;
   }
+
   @keyframes slide {
     0% {
       transform: translateY(-2px);
@@ -182,25 +194,31 @@ img {
   }
 }
 
-@keyframes slide-left {
-  from {
-    transform: translateX(50vw);
-    opacity: 0;
-  }
+@keyframes bob-in {
   to {
-    transform: translateX(0px);
+    color: var(--yellow);
     opacity: 1;
+    transform: scale(1);
   }
 }
 
 @keyframes slide-right {
   from {
-    transform: translateX(-50vw);
-    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
   }
   to {
-    transform: translateX(0px);
-    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes drop-flip {
+  from {
+    transform: translateY(-2rem);
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  to {
+    transform: translateY(0rem);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 }
 
@@ -243,7 +261,7 @@ img {
     .text-container {
       display: flex;
       flex-direction: row;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
     }
     #name {
       margin-right: 1rem;
