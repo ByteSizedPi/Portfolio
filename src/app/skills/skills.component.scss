@@ -1,16 +1,43 @@
 .skills-text,
 .skills-text-rotated {
   h2 {
-    width: 100%;
+    position: relative;
     font-size: 7rem;
     font-weight: 700;
     margin: 0;
     margin-bottom: 2rem;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: white;
-    color: transparent;
     letter-spacing: 5px;
-    // background: pink;
+    -webkit-text-stroke: 8px transparent;
+    color: transparent;
+
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(50, 50, 50, 1) 33.3%,
+      rgba(50, 50, 50, 1) 66.7%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background-size: 200% 100%;
+    animation: scroll-bg 4s forwards infinite ease-in-out;
+    background-clip: text;
+
+    &::after {
+      content: "SkillsSkillsSkillsSkillsSkillsSkillsSkillsSkillsSkills";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: var(--deep-blue);
+    }
+
+    @keyframes scroll-bg {
+      from {
+        background-position: 0% 0%;
+      }
+
+      to {
+        background-position: 200% 0%;
+      }
+    }
   }
 }
 
@@ -52,6 +79,7 @@
   &:hover {
     img {
       animation: alternate swivel 1s infinite ease-in-out;
+      filter: none;
     }
   }
 }
@@ -62,6 +90,9 @@
   transform-style: preserve-3d;
   width: 100%;
   min-width: 8rem;
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+
   &::after {
     content: "";
     position: absolute;
@@ -77,12 +108,7 @@
     height: 5rem;
     transform: translateZ(3rem);
     filter: grayscale(1);
-  }
-  .clip-img {
-    position: absolute;
-    top: 0;
-    filter: none;
-    clip-path: circle(0% at 50% 50%);
+    transition: filter 0.2s;
   }
   h3 {
     transform: translateZ(2rem);
@@ -115,16 +141,24 @@
   background-color: rgb(226, 50, 55);
 }
 
-#HTML5 {
+#HTML {
   background-color: rgb(241, 101, 42);
 }
 
-#CSS3 {
+#CSS {
   background-color: rgb(51, 169, 220);
 }
 
 #Sass {
   background-color: rgb(207, 100, 154);
+}
+
+#Node {
+  background-color: #5cab46;
+}
+
+#SQL {
+  background-color: #ea1b22;
 }
 
 @keyframes swivel {
@@ -133,6 +167,12 @@
   }
   100% {
     transform: rotateZ(5deg) translateZ(3rem);
+  }
+}
+
+@keyframes bob-in {
+  to {
+    transform: scale(1);
   }
 }
 

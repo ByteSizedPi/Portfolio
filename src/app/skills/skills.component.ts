@@ -1,48 +1,54 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { MediaQueriesService } from './../media-queries.service';
+import { Helpers } from '../services/Helpers';
+import { LoadService } from '../services/load.service';
+import { MediaQueriesService } from '../services/media-queries.service';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
-export class SkillsComponent implements OnInit, AfterViewInit {
+export class SkillsComponent extends Helpers implements OnInit, AfterViewInit {
   skills = [
     { name: "Javascript", link: "javascript.svg" },
     { name: "Typescript", link: "typescript.svg" },
     { name: "Java", link: "java.svg" },
     { name: "Angular", link: "angular.svg" },
-    { name: "HTML5", link: "html5.svg" },
-    { name: "CSS3", link: "css3.svg" },
+    { name: "HTML", link: "html5.svg" },
+    { name: "CSS", link: "css3.svg" },
     { name: "Sass", link: "sass.svg" },
+    { name: "Node", link: "nodejs.svg" },
+    { name: "SQL", link: "sql.svg" },
   ]
 
-  constructor(private mediaQueries: MediaQueriesService) { }
+  constructor(private mediaQueries: MediaQueriesService, private loadService: LoadService) {
+    super();
+  }
 
   ngOnInit(): void {
-
+    let sub = this.loadService.listenOn(2).subscribe(() => {
+      console.log('hello');
+      this.queryAll('.skill').forEach((skill, i: number) => {
+        setTimeout(() => skill.style.transform = 'scale(1)', i * 150);
+      });
+      sub.unsubscribe();
+    });
   }
 
   ngAfterViewInit(): void {
     this.addEventListeners();
     this.scrollEvent();
-
-  }
-
-  constrain(num: number, min: number, max: number) {
-    if (num < min) return 0;
-    if (num > max) return max;
-    return num;
   }
 
   addEventListeners() {
-    document.querySelectorAll(".skill-container")
+    let isHovering = false;
+    this.queryAll(".skill-container")
       .forEach((element: HTMLElement) => {
         element.addEventListener("mouseleave", (e: MouseEvent) => {
+          setTimeout(() => isHovering = false, 150);
           if (!this.mediaQueries.isMobile()) {
             element.querySelector<HTMLElement>(".skill").style.transition = ".2s";
             element.querySelector<HTMLElement>(".skill").style.transform = "none";
-            element.querySelector<HTMLElement>(".clip-img").style.clipPath = "circle(0% at 50% 50%)";
           }
         });
 
@@ -54,8 +60,9 @@ export class SkillsComponent implements OnInit, AfterViewInit {
             let xdeg = 360 * xoffset / (box.width * 5);
             let ydeg = 360 * yoffset / (box.height * 5);
             element.querySelector<HTMLElement>(".skill").style.transform = `rotateX(${-ydeg}deg) rotateY(${xdeg}deg)`;
-            element.querySelector<HTMLElement>(".skill").style.transition = "none";
-            element.querySelector<HTMLElement>(".clip-img").style.clipPath = "circle(100% at 50% 50%)";
+            element.querySelector<HTMLElement>(".skill").style.transition = isHovering ? "none" : ".2s";
+            setTimeout(() => isHovering = true, 100);
+            // element.querySelector<HTMLElement>(".clip-img").style.clipPath = "circle(100% at 50% 50%)";
           }
         });
         element.addEventListener("touchmove", () => element.querySelector<HTMLElement>(".skill").style.transform = "none");
@@ -63,8 +70,8 @@ export class SkillsComponent implements OnInit, AfterViewInit {
   }
 
   scrollEvent() {
-    const skills = document.querySelector<HTMLElement>(".skills-text");
-    const skills2 = document.querySelector<HTMLElement>(".skills-text-rotated");
+    const skills = this.query(".skills-text");
+    const skills2 = this.query(".skills-text-rotated");
 
     window.addEventListener("scroll", () => {
       let top = skills.getBoundingClientRect().top;
@@ -72,6 +79,8 @@ export class SkillsComponent implements OnInit, AfterViewInit {
       skills.style.transform = `translateX(${-top / 2 - offset}px)`;
       skills2.style.transform = `translateX(${top / 2 - offset}px)`;
     });
+
+
   };
 
 }

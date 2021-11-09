@@ -1,17 +1,29 @@
-import { ScrollService } from './../scroll.service';
 import { Component, OnInit } from '@angular/core';
+import { LoadService } from '../services/load.service';
+import { Helpers } from '../services/Helpers';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
-
-  constructor() { }
+export class AboutComponent extends Helpers implements OnInit {
+  constructor(private loadService: LoadService) {
+    super();
+  }
 
   ngOnInit(): void {
-    this.liquidButton();
+    let sub = this.loadService.listenOn(1).subscribe(() => {
+      this.liquidButton();
+      this.loadIn();
+      sub.unsubscribe();
+    });
+  }
+
+  loadIn() {
+    ['computer-animation', 'about-content'].forEach(el => {
+      this.Id(el).style.opacity = '1';
+    })
   }
 
   liquidButton() {
@@ -274,7 +286,7 @@ export class AboutComponent implements OnInit {
   }
 
   contact() {
-    document.getElementById("contact-link").click();
+    this.Id("contact-link").click();
   }
 
 }

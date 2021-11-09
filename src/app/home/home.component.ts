@@ -1,6 +1,7 @@
-import { MediaQueriesService } from './../media-queries.service';
+import { MediaQueriesService } from '../services/media-queries.service';
 import { Component, OnInit } from '@angular/core';
-import { Helpers } from 'src/services/Helpers';
+import { Helpers } from 'src/app/services/Helpers';
+import { LoadService } from '../services/load.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { Helpers } from 'src/services/Helpers';
 })
 export class HomeComponent extends Helpers implements OnInit {
 
-  constructor(private mediaQueries: MediaQueriesService) {
+  constructor(private mediaQueries: MediaQueriesService, private loadService: LoadService) {
     super();
   }
 
@@ -57,7 +58,7 @@ export class HomeComponent extends Helpers implements OnInit {
         //text animation
         perc = this.constrain(window.scrollY / bg.clientHeight, 0, 1);
         text.style.opacity = `${1 - perc * 1.5}`;
-        text.style.transform = `scale(${1 + 0.4 * perc})`;
+        text.style.transform = `scale(${1 + 0.4 * perc}) translateY(${perc * -5}rem)`;
       }
     });
   };

@@ -19,9 +19,19 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+img,
+.fadein {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
 h1 {
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 * {

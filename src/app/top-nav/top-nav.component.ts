@@ -1,12 +1,14 @@
-import { ScrollService } from './../scroll.service';
+import { ScrollService } from '../services/scroll.service';
 import { Component, OnInit } from '@angular/core';
+import { LoadService } from '../services/load.service';
+import { Helpers } from '../services/Helpers';
 
 @Component({
   selector: 'app-top-nav',
   templateUrl: './top-nav.component.html',
   styleUrls: ['./top-nav.component.scss']
 })
-export class TopNavComponent implements OnInit {
+export class TopNavComponent extends Helpers implements OnInit {
   prevLink: number = 0;
   navOpen: boolean = false;
 
@@ -18,20 +20,19 @@ export class TopNavComponent implements OnInit {
     { text: "contact", isActive: false },
   ];
 
-  constructor() { }
+  constructor(private loadService: LoadService) {
+    super();
+  }
 
   ngOnInit(): void {
-    this.links.forEach((link, index: number) =>
-      new ScrollService()
-        .init(document.getElementById(link.text))
-        .isInView().subscribe(() => this.setActive(index))
-    );
+    let i = 0;
+    this.loop(5, i => this.loadService.listenOn(i)
+      .subscribe(() => this.setActive(i)));
   }
 
   setActive(index: number) {
     this.links[this.prevLink].isActive = false;
-    this.links[index].isActive = true;
-    this.prevLink = index;
+    this.links[this.prevLink = index].isActive = true;
 
     setTimeout(() => this.toggleNav(false), 10);
   }

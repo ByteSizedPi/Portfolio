@@ -4,7 +4,7 @@ section {
   grid-template-columns: 1fr 2fr;
   grid-gap: 6rem;
   overflow: hidden;
-  margin-bottom: 10rem;
+  height: 100vh;
 }
 
 .text {
@@ -13,7 +13,7 @@ section {
   h2 {
     width: fit-content;
     color: var(--green);
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 600;
     margin: 0;
     justify-self: center;
@@ -60,16 +60,19 @@ button {
   height: 52px;
   margin-left: 2rem;
   border: 2px solid var(--green);
-  color: var(--green);
+  a {
+    color: var(--green);
+  }
   background: transparent;
   outline: none;
   border-radius: 26px;
   font: 700 1.2rem "Poppins", sans-serif;
   cursor: pointer;
-  // transition: background .1s;
+  transition: background-color 0.1s;
+
   &:hover,
   &:active {
-    background: #15694763;
+    background-color: #15694763;
   }
 }
 

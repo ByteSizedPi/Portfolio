@@ -1,11 +1,9 @@
 #bg {
   position: fixed;
   width: 100vw;
+  height: calc(100vh + 3rem);
   top: 0;
   left: 0;
-  width: 100vw;
-  opacity: 0;
-  animation: fade-in 0.5s 0.5s forwards;
 
   &::after {
     position: absolute;
@@ -19,7 +17,7 @@
 
   img {
     width: 100vw;
-    height: 100%;
+    height: calc(100vh + 3rem);
     position: absolute;
     object-fit: cover;
     object-position: center;
@@ -29,25 +27,23 @@
 
 #text {
   width: 100vw;
+  height: 100vh;
   position: relative;
-  height: fit-content;
 
-  .bg {
+  #portrait {
     height: 10rem;
-    width: 10rem;
-    border-radius: 5.25rem;
-    background-color: var(--yellow);
-    padding: 0.25rem;
-
-    #portrait {
-      height: 10rem;
-      border-radius: 5rem;
-    }
+    border-radius: 50%;
+    border: 0.25rem solid var(--yellow);
+    margin-bottom: 2rem;
   }
 
   #name {
     pointer-events: none;
     font-weight: 600;
+    font-size: 5.5rem;
+    line-height: 5.5rem;
+    margin-right: 1rem;
+
     div {
       opacity: 0;
       color: transparent;
@@ -55,7 +51,7 @@
       text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
       @for $i from 1 through 5 {
         &:nth-of-type(#{$i}) {
-          animation: bob-in
+          animation: bob-in-color
             0.5s
             #{$i *
             100}ms
@@ -69,6 +65,9 @@
   #surname {
     pointer-events: none;
     font-weight: 400;
+    font-size: 5.5rem;
+    line-height: 5.5rem;
+
     div {
       opacity: 0;
       color: transparent;
@@ -76,7 +75,7 @@
       text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
       @for $i from 1 through 6 {
         &:nth-of-type(#{$i}) {
-          animation: bob-in
+          animation: bob-in-color
             0.5s
             #{($i + 5) *
             100}ms
@@ -96,6 +95,9 @@
     color: white;
     animation: drop-flip 0.5s 1s forwards;
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    margin-right: 1rem;
 
     &::after {
       -webkit-text-stroke: 2px transparent;
@@ -120,6 +122,7 @@
   #profile {
     pointer-events: none;
     font-weight: 200;
+    font-size: 3rem;
     margin: 0;
     padding: 0;
     // text-shadow: 0px 0px 12px rgb(0, 0, 0), 0px 0px 12px rgb(0, 0, 0);
@@ -134,7 +137,7 @@ app-media-links {
 }
 
 #scroll {
-  margin-top: 7rem;
+  margin-top: 5rem;
   border: 2px solid rgb(173, 173, 173);
   background: rgba(0, 0, 40, 0.3);
   width: 25px;
@@ -194,7 +197,7 @@ app-media-links {
   }
 }
 
-@keyframes bob-in {
+@keyframes bob-in-color {
   to {
     color: var(--yellow);
     opacity: 1;
@@ -219,84 +222,5 @@ app-media-links {
   to {
     transform: translateY(0rem);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-}
-
-@media (max-width: 768px) {
-  img,
-  #text,
-  #bg-filter {
-    height: 100vh;
-  }
-  .text-container {
-    display: flex;
-    flex-direction: column;
-  }
-  #text {
-    #name {
-      font-size: 5rem;
-      line-height: 5.5rem;
-    }
-    #surname {
-      font-size: 4.5rem;
-      line-height: 5rem;
-    }
-    #developer {
-      font-size: 3rem;
-      line-height: 3.5rem;
-    }
-    #profile {
-      font-size: 2.5rem;
-      line-height: 3rem;
-    }
-  }
-}
-
-@media (min-width: 769px) {
-  #text,
-  #bg {
-    height: 100vh;
-  }
-  #text {
-    .text-container {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 0.5rem;
-    }
-    #name {
-      margin-right: 1rem;
-      font-size: 6rem;
-      line-height: 6.5rem;
-    }
-    #surname {
-      font-size: 5.5rem;
-      line-height: 5rem;
-    }
-    #developer {
-      margin-right: 1rem;
-      font-size: 3.5rem;
-      line-height: 4rem;
-    }
-    #profile {
-      font-size: 3rem;
-      line-height: 4rem;
-    }
-  }
-  #text #name {
-    div {
-      position: relative;
-      &::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: attr(data-text);
-        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
-        color: var(--yellow);
-      }
-      &:hover::after {
-        animation: bounce 0.3s forwards linear;
-        cursor: pointer;
-      }
-    }
   }
 }
