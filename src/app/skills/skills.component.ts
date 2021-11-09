@@ -27,7 +27,6 @@ export class SkillsComponent extends Helpers implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     let sub = this.loadService.listenOn(2).subscribe(() => {
-      console.log('hello');
       this.queryAll('.skill').forEach((skill, i: number) => {
         setTimeout(() => skill.style.transform = 'scale(1)', i * 150);
       });
