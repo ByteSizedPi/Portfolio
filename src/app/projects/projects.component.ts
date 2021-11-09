@@ -1,17 +1,24 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Helpers } from '../services/Helpers';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent extends Helpers implements OnInit {
   public projects: { name: string, description: string, link: string, imgLink: string }[] = [
     {
-      name: "IMDB Clone",
-      description: `Angular Web App that allows a user to explore movie information using "The Movie Database API".  Main Intent is to show project using APIs. Further development could include using app as social media platform for users to share and discover movies.`,
+      name: "Movie Torrent Site",
+      description: `MongoDB backend and Nodejs API with Angular frontend that allows a user to torrent movies using The Movie Database API and the YTS API. For displaying understanding of APIs and how to retrieve, combine and deal with asyncronous and missing data. using the Youtube api to display in-frame trailers. Together with a modern and easy to use interface.`,
       link: "https://github.com/ByteSizedPi/IMDB-clone",
-      imgLink: "movies.jpg"
+      imgLink: "imdbclone.png"
+    },
+    {
+      name: "Employee Appraisals",
+      description: `Angular Web app using SQL Server backend and ASP .NET API to allow the performance of employees of a company to be evaluated`,
+      link: "https://github.com/ByteSizedPi/IMDB-clone",
+      imgLink: "appraisals.png"
     },
     {
       name: "Bulk Buy",
@@ -44,7 +51,9 @@ export class ProjectsComponent implements OnInit {
       imgLink: "hilbert.jpg"
     },
   ]
-  constructor() { }
+  constructor() {
+    super();
+  }
 
   ngOnInit(): void {
   }

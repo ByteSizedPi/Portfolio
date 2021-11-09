@@ -6,11 +6,13 @@
   >
     <img
       [src]="'./assets/Graphics/' + project.imgLink"
+      (load)="onLoad($event)"
       [alt]="project.name"
       class="project-img bg-img"
     />
     <img
       [src]="'./assets/Graphics/' + project.imgLink"
+      (load)="onLoad($event)"
       [alt]="project.name"
       class="project-img clip-img"
     />
