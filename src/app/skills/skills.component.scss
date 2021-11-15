@@ -12,10 +12,10 @@
 
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(50, 50, 50, 1) 33.3%,
-      rgba(50, 50, 50, 1) 66.7%,
-      rgba(255, 255, 255, 1) 100%
+      var(--lilac) 0%,
+      var(--sky-blue) 33.3%,
+      var(--sky-blue) 66.7%,
+      var(--lilac) 100%
     );
     background-size: 200% 100%;
     animation: scroll-bg 4s forwards infinite ease-in-out;
@@ -92,6 +92,7 @@
   min-width: 8rem;
   transform: scale(0);
   transition: transform 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+  pointer-events: none;
 
   &::after {
     content: "";

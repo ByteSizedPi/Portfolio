@@ -1,9 +1,8 @@
 #code-links {
-  border-radius: 2.5rem;
-  height: 4.5rem;
+  border-radius: 50%;
   opacity: 0;
-  -webkit-animation: fade-in 2s .5s forwards;
-          animation: fade-in 2s .5s forwards;
+  -webkit-animation: fade-in 0.5s 1.5s forwards;
+          animation: fade-in 0.5s 1.5s forwards;
 }
 
 #code-links .wrapper {
@@ -15,8 +14,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: all .4s ease-out;
-  transition: all .4s ease-out;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 #code-links .wrapper__links {
@@ -28,7 +27,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 15rem;
+  width: 30vh;
 }
 
 #code-links .social-link--linkedin {
@@ -48,28 +47,28 @@
 }
 
 #code-links .social-link .social-svg {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 7vh;
+  height: 7vh;
 }
 
 #code-links .social-link .social-svg .social-group__icon {
   fill: white;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 #code-links .social-link .social-svg .social-group__inner-circle {
   fill: transparent;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 #code-links .social-link .social-svg .social-group__outline {
   stroke: white;
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   fill: #19193288;
 }
 
@@ -79,14 +78,14 @@
 
 #code-links .social-link .social-svg:hover .social-group__icon, #code-links .social-link .social-svg:active .social-group__icon, #code-links .social-link .social-svg:focus .social-group__icon {
   fill: white;
-  -webkit-transition: all .45s;
-  transition: all .45s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 #code-links .social-link .social-svg:hover .social-group__inner-circle, #code-links .social-link .social-svg:active .social-group__inner-circle, #code-links .social-link .social-svg:focus .social-group__inner-circle {
   fill: currentColor;
-  -webkit-transition: all .45s;
-  transition: all .45s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 #code-links .social-link .social-svg:hover .social-group__inner-circle--instagram, #code-links .social-link .social-svg:active .social-group__inner-circle--instagram, #code-links .social-link .social-svg:focus .social-group__inner-circle--instagram {
@@ -98,7 +97,7 @@
   fill: none;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  -webkit-transition: all .45s;
-  transition: all .45s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 /*# sourceMappingURL=media-links.component.css.map */

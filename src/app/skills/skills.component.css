@@ -1,14 +1,46 @@
 .skills-text h2,
 .skills-text-rotated h2 {
-  width: 100%;
+  position: relative;
   font-size: 7rem;
   font-weight: 700;
   margin: 0;
   margin-bottom: 2rem;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: white;
-  color: transparent;
   letter-spacing: 5px;
+  -webkit-text-stroke: 8px transparent;
+  color: transparent;
+  background: -webkit-gradient(linear, left top, right top, from(var(--lilac)), color-stop(33.3%, var(--sky-blue)), color-stop(66.7%, var(--sky-blue)), to(var(--lilac)));
+  background: linear-gradient(90deg, var(--lilac) 0%, var(--sky-blue) 33.3%, var(--sky-blue) 66.7%, var(--lilac) 100%);
+  background-size: 200% 100%;
+  -webkit-animation: scroll-bg 4s forwards infinite ease-in-out;
+          animation: scroll-bg 4s forwards infinite ease-in-out;
+  background-clip: text;
+}
+
+.skills-text h2::after,
+.skills-text-rotated h2::after {
+  content: "SkillsSkillsSkillsSkillsSkillsSkillsSkillsSkillsSkills";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--deep-blue);
+}
+
+@-webkit-keyframes scroll-bg {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 200% 0%;
+  }
+}
+
+@keyframes scroll-bg {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 200% 0%;
+  }
 }
 
 .skills-text-rotated h2 {
@@ -57,6 +89,8 @@
 .skill-container:hover img {
   -webkit-animation: alternate swivel 1s infinite ease-in-out;
           animation: alternate swivel 1s infinite ease-in-out;
+  -webkit-filter: none;
+          filter: none;
 }
 
 .skill {
@@ -66,6 +100,13 @@
           transform-style: preserve-3d;
   width: 100%;
   min-width: 8rem;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+  transition: -webkit-transform 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+  transition: transform 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+  transition: transform 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8), -webkit-transform 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+  pointer-events: none;
 }
 
 .skill::after {
@@ -88,15 +129,10 @@
           transform: translateZ(3rem);
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
-}
-
-.skill .clip-img {
-  position: absolute;
-  top: 0;
-  -webkit-filter: none;
-          filter: none;
-  -webkit-clip-path: circle(0% at 50% 50%);
-          clip-path: circle(0% at 50% 50%);
+  -webkit-transition: -webkit-filter 0.2s;
+  transition: -webkit-filter 0.2s;
+  transition: filter 0.2s;
+  transition: filter 0.2s, -webkit-filter 0.2s;
 }
 
 .skill h3 {
@@ -131,16 +167,24 @@
   background-color: #e23237;
 }
 
-#HTML5 {
+#HTML {
   background-color: #f1652a;
 }
 
-#CSS3 {
+#CSS {
   background-color: #33a9dc;
 }
 
 #Sass {
   background-color: #cf649a;
+}
+
+#Node {
+  background-color: #5cab46;
+}
+
+#SQL {
+  background-color: #ea1b22;
 }
 
 @-webkit-keyframes swivel {
@@ -162,6 +206,20 @@
   100% {
     -webkit-transform: rotateZ(5deg) translateZ(3rem);
             transform: rotateZ(5deg) translateZ(3rem);
+  }
+}
+
+@-webkit-keyframes bob-in {
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes bob-in {
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 

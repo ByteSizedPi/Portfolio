@@ -22,6 +22,22 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+img,
+.fadein {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
 * {
   -webkit-user-select: none;
      -moz-user-select: none;

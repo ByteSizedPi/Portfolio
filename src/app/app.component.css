@@ -9,9 +9,20 @@ div {
 }
 
 section {
-  overflow: hidden;
   position: relative;
   z-index: 1;
   background: var(--deep-blue);
+  margin-top: 8rem;
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  top: -8rem;
+  left: 0;
+  height: 8rem;
+  width: 100vw;
+  background: -webkit-gradient(linear, left bottom, left top, from(#191932), to(rgba(25, 25, 50, 0)));
+  background: linear-gradient(0deg, #191932 0%, rgba(25, 25, 50, 0) 100%);
 }
 /*# sourceMappingURL=app.component.css.map */
