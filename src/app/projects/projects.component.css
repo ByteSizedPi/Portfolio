@@ -1,5 +1,7 @@
 section {
-  width: 100vw;
+  width: calc(100vw - 2rem);
+  height: calc(100vh - 2rem);
+  margin: 1rem;
 }
 
 .project-container {
@@ -21,6 +23,9 @@ section {
   position: relative;
   -webkit-box-shadow: rgba(0, 0, 0, 0.582) 5px 5px 15px 4px;
           box-shadow: rgba(0, 0, 0, 0.582) 5px 5px 15px 4px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .project-container:hover {
@@ -32,10 +37,10 @@ section {
 .project-container:hover .info-container .fa-info {
   -webkit-clip-path: circle(141% at 100% 100%);
           clip-path: circle(141% at 100% 100%);
-  -webkit-transition: opacity 0.2s, -webkit-clip-path 0.2s 0.5s;
-  transition: opacity 0.2s, -webkit-clip-path 0.2s 0.5s;
-  transition: clip-path 0.2s 0.5s, opacity 0.2s;
-  transition: clip-path 0.2s 0.5s, opacity 0.2s, -webkit-clip-path 0.2s 0.5s;
+  -webkit-transition: opacity 0.2s 0.5s, -webkit-clip-path 0.2s 0.5s;
+  transition: opacity 0.2s 0.5s, -webkit-clip-path 0.2s 0.5s;
+  transition: clip-path 0.2s 0.5s, opacity 0.2s 0.5s;
+  transition: clip-path 0.2s 0.5s, opacity 0.2s 0.5s, -webkit-clip-path 0.2s 0.5s;
   -webkit-animation: attention 2s 1s infinite forwards;
           animation: attention 2s 1s infinite forwards;
 }
@@ -65,17 +70,26 @@ section {
 }
 
 .project-container:hover .info-container:hover {
-  -webkit-clip-path: circle(144% at 100% 100%);
-          clip-path: circle(144% at 100% 100%);
+  -webkit-clip-path: circle(150% at 100% 100%);
+          clip-path: circle(150% at 100% 100%);
 }
 
 .project-container:hover .info-container:hover .fa-info {
+  -webkit-transition: opacity 0.2s, -webkit-clip-path 0.2s 0.5s;
+  transition: opacity 0.2s, -webkit-clip-path 0.2s 0.5s;
+  transition: clip-path 0.2s 0.5s, opacity 0.2s;
+  transition: clip-path 0.2s 0.5s, opacity 0.2s, -webkit-clip-path 0.2s 0.5s;
   opacity: 0;
 }
 
 .project-container:hover .info-container:hover .text-container {
-  -webkit-clip-path: circle(144% at 100% 100%);
-          clip-path: circle(144% at 100% 100%);
+  opacity: 1;
+  -webkit-clip-path: circle(150% at 100% 100%);
+          clip-path: circle(150% at 100% 100%);
+  -webkit-transition: opacity 0.2s, -webkit-clip-path 0.5s;
+  transition: opacity 0.2s, -webkit-clip-path 0.5s;
+  transition: clip-path 0.5s, opacity 0.2s;
+  transition: clip-path 0.5s, opacity 0.2s, -webkit-clip-path 0.5s;
 }
 
 .project-container:hover .clip-img {
@@ -105,12 +119,13 @@ h1 {
   font-size: 4rem;
   color: whitesmoke;
   margin-top: 10rem;
+  padding-top: 3rem;
 }
 
 img {
   display: block;
   width: 100%;
-  height: 35rem;
+  height: 30rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -134,8 +149,8 @@ img {
   z-index: 1;
   bottom: 0;
   right: 0;
-  -webkit-clip-path: circle(0 at 100% 100%);
-          clip-path: circle(0 at 100% 100%);
+  -webkit-clip-path: circle(0% at 100% 100%);
+          clip-path: circle(0% at 100% 100%);
   color: black;
   font-size: 1.5rem;
   width: 1.5rem;
@@ -143,64 +158,74 @@ img {
   padding: 1rem 0.5rem 0.5rem 1rem;
   margin: 0;
   background-color: rgba(245, 245, 245, 0.726);
-  -webkit-box-shadow: 2px 0px 10px 7px rgba(0, 0, 0, 0.3);
-          box-shadow: 2px 0px 10px 7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 2px 0px 10px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 0px 10px 5px rgba(0, 0, 0, 0.3);
   border-top-left-radius: 100%;
-  -webkit-transition: opacity 0.5s, -webkit-clip-path 0.5s;
-  transition: opacity 0.5s, -webkit-clip-path 0.5s;
-  transition: clip-path 0.5s, opacity 0.5s;
-  transition: clip-path 0.5s, opacity 0.5s, -webkit-clip-path 0.5s;
 }
 
 .text-container {
-  height: 20rem;
-  width: 100%;
+  height: 16rem;
   position: absolute;
   z-index: 0;
   bottom: 0;
   overflow: hidden;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  -webkit-clip-path: circle(0 at 100% 100%);
-          clip-path: circle(0 at 100% 100%);
-  -webkit-transition: -webkit-clip-path 0.75s, -webkit-backdrop-filter 2s;
-  transition: -webkit-clip-path 0.75s, -webkit-backdrop-filter 2s;
-  transition: clip-path 0.75s, backdrop-filter 2s;
-  transition: clip-path 0.75s, backdrop-filter 2s, -webkit-clip-path 0.75s, -webkit-backdrop-filter 2s;
-  -webkit-backdrop-filter: blur(6px) brightness(0.6) saturate(0.5);
-          backdrop-filter: blur(6px) brightness(0.6) saturate(0.5);
+  width: calc(100% - 4rem);
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-clip-path: circle(5rem at 100% 100%);
+          clip-path: circle(5rem at 100% 100%);
+  opacity: 0;
+  -webkit-transition: opacity 0.25s 0.25s, -webkit-clip-path 0.5s;
+  transition: opacity 0.25s 0.25s, -webkit-clip-path 0.5s;
+  transition: clip-path 0.5s, opacity 0.25s 0.25s;
+  transition: clip-path 0.5s, opacity 0.25s 0.25s, -webkit-clip-path 0.5s;
+  padding: 2rem;
+  -webkit-backdrop-filter: blur(8px) brightness(0.8) saturate(0.5);
+          backdrop-filter: blur(8px) brightness(0.8) saturate(0.5);
+}
+
+.text-container h2,
+.text-container p {
+  color: white;
+  margin: 0 0 1rem 0;
+}
+
+.text-container p {
+  padding-left: 0.5rem;
 }
 
 .text-container a,
 .text-container button {
   position: relative;
   text-decoration: none;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
   padding: 0 0.5rem;
-  border-radius: 2rem;
   border: none;
   outline: none;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
+  border-radius: 2rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 5px 0px 15px 3px;
+          box-shadow: rgba(0, 0, 0, 0.3) 5px 0px 15px 3px;
+}
+
+.text-container button {
+  height: calc(2.5rem + 4px);
+  padding: 0 1rem;
+  margin-left: 0.5rem;
+}
+
+.text-container a {
   height: 2.5rem;
-  -webkit-box-shadow: black 5px 0px 15px 3px;
-          box-shadow: black 5px 0px 15px 3px;
-}
-
-.text-container a h3,
-.text-container button h3 {
-  margin: 0;
-}
-
-.text-container .row {
-  margin-left: 1rem;
+  margin-right: 0.5rem;
 }
 
 .text-container .link {
   background: rgba(0, 0, 0, 0.3);
   border: 2px solid var(--hospital-blue);
   color: var(--hospital-blue);
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
 }
 
 .text-container .link:hover {
@@ -209,6 +234,8 @@ img {
 
 .text-container .play {
   background: var(--hospital-blue);
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
   color: black;
 }
 

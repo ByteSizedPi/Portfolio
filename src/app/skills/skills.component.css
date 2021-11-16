@@ -8,8 +8,8 @@
   letter-spacing: 5px;
   -webkit-text-stroke: 8px transparent;
   color: transparent;
-  background: -webkit-gradient(linear, left top, right top, from(var(--lilac)), color-stop(33.3%, var(--sky-blue)), color-stop(66.7%, var(--sky-blue)), to(var(--lilac)));
-  background: linear-gradient(90deg, var(--lilac) 0%, var(--sky-blue) 33.3%, var(--sky-blue) 66.7%, var(--lilac) 100%);
+  background: -webkit-gradient(linear, left top, right top, from(var(--lilac)), color-stop(33.3%, var(--green)), color-stop(66.7%, var(--green)), to(var(--lilac)));
+  background: linear-gradient(90deg, var(--lilac) 0%, var(--green) 33.3%, var(--green) 66.7%, var(--lilac) 100%);
   background-size: 200% 100%;
   -webkit-animation: scroll-bg 4s forwards infinite ease-in-out;
           animation: scroll-bg 4s forwards infinite ease-in-out;

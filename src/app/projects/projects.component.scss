@@ -1,5 +1,7 @@
 section {
-  width: 100vw;
+  width: calc(100vw - 2rem);
+  height: calc(100vh - 2rem);
+  margin: 1rem;
 }
 
 .project-container {
@@ -10,6 +12,7 @@ section {
   margin: 0.5rem;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.582) 5px 5px 15px 4px;
+  height: fit-content;
 
   &:hover {
     flex: 6;
@@ -17,7 +20,7 @@ section {
     .info-container {
       .fa-info {
         clip-path: circle(141% at 100% 100%);
-        transition: clip-path 0.2s 0.5s, opacity 0.2s;
+        transition: clip-path 0.2s 0.5s, opacity 0.2s 0.5s;
         animation: attention 2s 1s infinite forwards;
 
         @keyframes attention {
@@ -34,14 +37,17 @@ section {
       }
 
       &:hover {
-        clip-path: circle(144% at 100% 100%);
+        clip-path: circle(150% at 100% 100%);
 
         .fa-info {
+          transition: clip-path 0.2s 0.5s, opacity 0.2s;
           opacity: 0;
         }
 
         .text-container {
-          clip-path: circle(144% at 100% 100%);
+          opacity: 1;
+          clip-path: circle(150% at 100% 100%);
+          transition: clip-path 0.5s, opacity 0.2s;
         }
       }
     }
@@ -69,12 +75,13 @@ h1 {
   font-size: 4rem;
   color: whitesmoke;
   margin-top: 10rem;
+  padding-top: 3rem;
 }
 
 img {
   display: block;
   width: 100%;
-  height: 35rem;
+  height: 30rem;
   object-fit: cover;
 }
 
@@ -93,7 +100,7 @@ img {
   z-index: 1;
   bottom: 0;
   right: 0;
-  clip-path: circle(0 at 100% 100%);
+  clip-path: circle(0% at 100% 100%);
   color: black;
   font-size: 1.5rem;
   width: 1.5rem;
@@ -101,49 +108,66 @@ img {
   padding: 1rem 0.5rem 0.5rem 1rem;
   margin: 0;
   background-color: rgba(245, 245, 245, 0.726);
-  box-shadow: 2px 0px 10px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 0px 10px 5px rgba(0, 0, 0, 0.3);
   border-top-left-radius: 100%;
-  transition: clip-path 0.5s, opacity 0.5s;
+  // transition: clip-path 0.75s, opacity 0.5s 1.75s;
 }
 
 .text-container {
-  height: 20rem;
-  width: 100%;
+  height: 16rem;
   position: absolute;
   z-index: 0;
   bottom: 0;
   overflow: hidden;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  clip-path: circle(0 at 100% 100%);
-  transition: clip-path 0.75s, backdrop-filter 2s;
-  backdrop-filter: blur(6px) brightness(0.6) saturate(0.5);
+  width: calc(100% - 4rem);
+  background: rgba(0, 0, 0, 0.8);
+  clip-path: circle(5rem at 100% 100%);
+  opacity: 0;
+  transition: clip-path 0.5s, opacity 0.25s 0.25s;
+  padding: 2rem;
+  backdrop-filter: blur(8px) brightness(0.8) saturate(0.5);
+
+  h2,
+  p {
+    color: white;
+    margin: 0 0 1rem 0;
+  }
+
+  p {
+    padding-left: 0.5rem;
+  }
 
   a,
   button {
     position: relative;
     text-decoration: none;
-    margin: 0.5rem;
+    margin: 0.5rem 0;
     padding: 0 0.5rem;
-    border-radius: 2rem;
     border: none;
     outline: none;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.3) 5px 0px 15px 3px;
+  }
+
+  button {
+    height: calc(2.5rem + 4px);
+    padding: 0 1rem;
+    margin-left: 0.5rem;
+  }
+
+  a {
     height: 2.5rem;
-    box-shadow: black 5px 0px 15px 3px;
-    h3 {
-      margin: 0;
-    }
+    margin-right: 0.5rem;
   }
-  .row {
-    margin-left: 1rem;
-  }
+
   .link {
     background: rgba(0, 0, 0, 0.3);
     border: 2px solid var(--hospital-blue);
     color: var(--hospital-blue);
+    transition: background 0.2s;
 
     &:hover {
       background: #0e244ba1;
@@ -151,6 +175,7 @@ img {
   }
   .play {
     background: var(--hospital-blue);
+    transition: background 0.2s;
     color: black;
 
     &:hover {
