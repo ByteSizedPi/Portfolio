@@ -26,19 +26,18 @@ export class SkillsComponent extends Helpers implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
     let sub = this.loadService.listenOn(2).subscribe(() => {
       this.queryAll('.skill').forEach((skill, i: number) => {
         setTimeout(() => {
           skill.style.transform = 'scale(1)';
-          skill.style.pointerEvents = 'all';
         }, i * 150);
       });
       sub.unsubscribe();
+      setTimeout(() => this.addEventListeners(), 1500);
     });
-  }
-
-  ngAfterViewInit(): void {
-    this.addEventListeners();
     this.scrollEvent();
   }
 
