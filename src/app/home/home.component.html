@@ -2,12 +2,12 @@
   <div id="bg">
     <img
       src="./assets/Graphics/backdrop.jpg"
-      (load)="onLoad($event)"
+      (load)="load($event)"
       loading="lazy"
       alt=""
     />
   </div>
-  <div id="text" class="center column">
+  <div id="text" class="center column" *ngIf="loaded">
     <img
       src="./assets/Graphics/portrait.jpg"
       id="portrait"

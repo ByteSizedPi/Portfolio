@@ -9,15 +9,13 @@ import { LoadService } from '../services/load.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent extends Helpers implements OnInit {
-
+  public loaded = false;
   constructor(private mediaQueries: MediaQueriesService, private loadService: LoadService) {
     super();
   }
 
   ngOnInit(): void {
-    this.scrollEvent();
-    this.circleClip();
-    this.mediaQueries.init();
+
   }
 
   circleClip() {
@@ -62,5 +60,15 @@ export class HomeComponent extends Helpers implements OnInit {
       }
     });
   };
+
+  load = (event: Event) => {
+    this.loaded = true;
+    this.onLoad(event);
+    // this.mediaQueries.init();
+    setTimeout(() => {
+      this.scrollEvent();
+      this.circleClip();
+    }, 0);
+  }
 
 }
