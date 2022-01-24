@@ -22,8 +22,14 @@ export class ProjectsComponent extends Helpers implements OnInit {
     {
       name: 'Employee Appraisals',
       description: `Angular Web app using SQL Server backend and ASP .NET API to allow the performance of employees of a company to be evaluated`,
-      link: 'https://github.com/ByteSizedPi/IMDB-clone',
+      link: 'https://github.com/ByteSizedPi/Employee-Appraisals',
       imgLink: 'appraisals.webp',
+    },
+    {
+      name: 'PRA Calculator',
+      description: `simple script that demonstrates the page replacement algorithm used in RAM and the TLB showing off: 1. Clock 2. FIFO 3. LRU 4. Optimal 5. Second Chance`,
+      link: 'https://github.com/ByteSizedPi/PRA-Calculator',
+      imgLink: 'pracalculator.webp',
     },
     {
       name: 'Bulk Buy',
