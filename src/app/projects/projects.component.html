@@ -2,13 +2,13 @@
 <section class="row">
   <div class="project-container" *ngFor="let project of projects; index as i">
     <img
-      [src]="'./assets/Graphics/' + project.imgLink"
+      [src]="'./assets/images/' + project.imgLink"
       (load)="onLoad($event)"
       [alt]="project.name"
       class="bg-img"
     />
     <img
-      [src]="'./assets/Graphics/' + project.imgLink"
+      [src]="'./assets/images/' + project.imgLink"
       (load)="onLoad($event)"
       [alt]="project.name"
       class="clip-img"
@@ -28,11 +28,11 @@
               <i class="fab fa-github"></i>
             </a>
 
-            <button class="play center row">
+            <!-- <button class="play center row">
               <h3>Demo</h3>
 
               <i class="fas fa-play"></i>
-            </button>
+            </button> -->
           </div>
         </div>
       </div>

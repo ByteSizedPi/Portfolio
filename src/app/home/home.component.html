@@ -1,18 +1,12 @@
 <section id="home">
   <div id="bg">
-    <img
-      src="./assets/Graphics/backdrop.jpg"
-      (load)="load($event)"
-      loading="lazy"
-      alt=""
-    />
+    <img src="./assets/images/backdrop.webp" (load)="load($event)" alt="" />
   </div>
   <div id="text" class="center column" *ngIf="loaded">
     <img
-      src="./assets/Graphics/portrait.jpg"
+      src="./assets/images/portrait.webp"
       id="portrait"
       (load)="onLoad($event)"
-      loading="lazy"
       alt=""
     />
     <div class="text-container center">

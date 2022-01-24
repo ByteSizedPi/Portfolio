@@ -4,10 +4,13 @@
   </div>
   <div class="scroll-container">
     <div id="skills-container" class="row">
-      <span class="skill-container center" *ngFor="let skill of skills">
+      <span
+        class="skill-container center-vertical"
+        *ngFor="let skill of skills"
+      >
         <div class="skill center column" [ngClass]="skill.name">
           <img
-            [src]="'./assets/Graphics/' + skill.link"
+            [src]="'./assets/svg/' + skill.link"
             alt=" "
             (load)="onLoad($event)"
           />

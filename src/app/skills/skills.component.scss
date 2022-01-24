@@ -10,13 +10,7 @@
     -webkit-text-stroke: 8px transparent;
     color: transparent;
 
-    background: linear-gradient(
-      90deg,
-      var(--lilac) 0%,
-      var(--green) 33.3%,
-      var(--green) 66.7%,
-      var(--lilac) 100%
-    );
+    background: linear-gradient(90deg, var(--lilac) 0%, var(--green) 33.3%, var(--green) 66.7%, var(--lilac) 100%);
     background-size: 200% 100%;
     animation: scroll-bg 4s forwards infinite ease-in-out;
     background-clip: text;
@@ -48,30 +42,41 @@
   }
 }
 
+// .scroll-container {
+//   overflow-x: auto;
+//   margin: 1rem;
+//   padding: 1rem 0;
+//   &::-webkit-scrollbar {
+//     height: 10px;
+//   }
+//   &::-webkit-scrollbar-track {
+//     background: transparent;
+//     background-color: rgba(255, 255, 255, 0.1);
+//     border-radius: 5px;
+//   }
+//   &::-webkit-scrollbar-thumb {
+//     background: rgb(95, 95, 95);
+//     border-radius: 5px;
+//   }
+// }
+
+// #skills-container {
+//   width: fit-content;
+// }
+
 .scroll-container {
-  overflow-x: auto;
   margin: 1rem;
   padding: 1rem 0;
-  &::-webkit-scrollbar {
-    height: 10px;
-  }
-  &::-webkit-scrollbar-track {
-    background: transparent;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: rgb(95, 95, 95);
-    border-radius: 5px;
-  }
 }
 
 #skills-container {
-  width: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .skill-container {
   box-sizing: border-box;
+  max-width: 14rem;
   width: 100%;
   perspective: 1000px;
   overflow: hidden;
@@ -88,8 +93,9 @@
   position: relative;
   padding: 0;
   transform-style: preserve-3d;
-  width: 100%;
+  // width: 100%;
   min-width: 8rem;
+  width: 8rem;
   transform: scale(0);
   transition: transform 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
 
