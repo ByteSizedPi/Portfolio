@@ -1,3 +1,7 @@
+#skills {
+  padding-top: 5rem;
+}
+
 .skills-text,
 .skills-text-rotated {
   h2 {
@@ -84,7 +88,7 @@
   &:hover {
     img {
       animation: alternate swivel 1s infinite ease-in-out;
-      filter: none;
+      // filter: none;
     }
   }
 }
@@ -113,7 +117,7 @@
     width: 80%;
     height: 5rem;
     transform: translateZ(3rem);
-    filter: grayscale(1);
+    // filter: grayscale(1);
     transition: filter 0.2s;
   }
   h3 {

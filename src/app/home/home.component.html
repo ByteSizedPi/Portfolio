@@ -1,6 +1,11 @@
 <section id="home">
   <div id="bg">
-    <img src="./assets/images/backdrop.webp" (load)="load($event)" alt="" />
+    <img
+      src="./assets/images/backdrop.webp"
+      (load)="load($event)"
+      alt=""
+      loading="lazy"
+    />
   </div>
   <div id="text" class="center column" *ngIf="loaded">
     <img
