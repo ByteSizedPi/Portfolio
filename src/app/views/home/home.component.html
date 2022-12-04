@@ -1,0 +1,30 @@
+<section [scrollListener]="LINK.ABOUT" class="no-scroll">
+  <div id="bg">
+    <img imgLoad="./assets/images/backdrop.webp" (load)="load($event)" />
+  </div>
+  <div id="text" class="center column" *ngIf="loaded">
+    <img imgLoad="./assets/images/portrait.webp" id="portrait" />
+    <div class="text-container center">
+      <h1 id="name" class="row">
+        <div>J</div>
+        <div>o</div>
+        <div>h</div>
+        <div>a</div>
+        <div>n</div>
+      </h1>
+      <h1 id="surname" class="row">
+        <div>V</div>
+        <div>e</div>
+        <div>n</div>
+        <div>t</div>
+        <div>e</div>
+        <div>r</div>
+      </h1>
+    </div>
+    <div class="text-container center">
+      <h2 id="developer" data-text="Developer">Developer</h2>
+      <h2 id="profile">profile</h2>
+    </div>
+    <app-media-links></app-media-links>
+  </div>
+</section>

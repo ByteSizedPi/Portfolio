@@ -1,0 +1,105 @@
+nav {
+  top: 0;
+  position: fixed;
+  box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  color: white;
+  padding-left: 0.5rem;
+  // background-color: var(--deep-blue);
+  background-color: #191932aa;
+  backdrop-filter: blur(8px) brightness(0.8);
+  z-index: 10;
+  // box-shadow: rgba(0, 0, 0, 0.342) 0px 20px 30px -10px;
+}
+
+h2 {
+  width: fit-content;
+  height: 3rem;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+.links {
+  transition: background-color 0s 0.3s;
+}
+
+#bars {
+  position: absolute;
+  top: 13.925px;
+  right: 13.925px;
+  width: 1.8rem;
+  &:active {
+    .cls-1 {
+      stroke: var(--yellow);
+    }
+  }
+  .cls-1 {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+  }
+}
+
+$duration: 0.2s;
+$distance: 8px;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.link {
+  margin: 0;
+  padding: 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 200;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  transition: color 0.2s;
+  font-weight: 200;
+  width: fit-content;
+  height: 3rem;
+  &:hover {
+    color: var(--yellow);
+  }
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 0.6rem;
+    right: 0;
+    height: 3px;
+    background-color: var(--yellow);
+    border-radius: 4px;
+    width: calc(100% - 1.2rem);
+  }
+  &:before {
+    opacity: 0;
+    transform: translateY(-$distance);
+    transition: transform 0s $easeOutBack, opacity 0s;
+  }
+  &:after {
+    opacity: 0;
+    transform: translateY($distance/2);
+    transition: transform $duration $easeOutBack, opacity $duration;
+  }
+}
+
+.link-active {
+  color: var(--yellow);
+  font-weight: 500;
+  &:before,
+  &:after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  &:before {
+    transition: transform $duration $easeOutBack, opacity $duration;
+  }
+  &:after {
+    transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+  }
+}

@@ -1,0 +1,13 @@
+<nav class="space-between row">
+  <span class="center-vertical row links nav-open">
+    <a
+      class="center link"
+      [href]="'#' + link.text"
+      [ngClass]="link.isActive ? 'link-active' : ''"
+      *ngFor="let link of links"
+      [id]="link.text + '-link'"
+    >
+      {{ link.text | titlecase }}
+    </a>
+  </span>
+</nav>

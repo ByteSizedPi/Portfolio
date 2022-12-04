@@ -1,0 +1,82 @@
+#code-links {
+  $color-primary: #81c2de;
+  $color-primary-light: #b4f5ff;
+  $color-primary-dark: #4f92ac;
+  $color-white: #fffbfa;
+  $color-black: #191308;
+  border-radius: 50%;
+  // height: 4vh;
+  opacity: 0;
+  animation: fade-in 0.5s 1.5s forwards;
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 0.4s ease-out;
+    &__links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 30vh;
+    }
+  }
+  .social-link {
+    &--linkedin {
+      color: #2d76b0;
+    }
+    &--github {
+      color: #000;
+    }
+    &--instagram {
+      color: #9a2970;
+    }
+    &--dribbble {
+      color: #b53561;
+    }
+    & .social-svg {
+      width: 7vh;
+      height: 7vh;
+      & .social-group {
+        &__icon {
+          fill: white;
+          transition: all 0.2s;
+        }
+        &__inner-circle {
+          fill: transparent;
+          transition: all 0.2s;
+        }
+        &__outline {
+          stroke: white;
+          transform-origin: 50% 50%;
+          transition: all 0.2s;
+          fill: #19193288;
+        }
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        cursor: pointer;
+        & .social-group {
+          &__icon {
+            fill: white;
+            transition: all 0.2s;
+          }
+          &__inner-circle {
+            fill: currentColor;
+            transition: all 0.2s;
+            &--instagram {
+              fill: url(#simpleInsta) !important;
+            }
+          }
+          &__outline {
+            // stroke: currentColor;
+            stroke: white;
+            fill: none;
+            transform: scale(1.1);
+            transition: all 0.2s;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,193 @@
+section {
+  // margin-top: 3rem;
+  // height: calc(100vh - 3rem);
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+#bg {
+  position: fixed;
+  width: 100vw;
+  // height: calc(100vh + 3rem);
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform: scale(1);
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #20265a79;
+  }
+
+  img {
+    width: 100vw;
+    // height: calc(100vh + 3rem);
+    height: 100vh;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(0.5) sepia(0.6);
+  }
+}
+
+#text {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  transform: scale(1);
+  padding: 3rem 0;
+
+  #portrait {
+    height: 20vh;
+    border-radius: 50%;
+    border: 2px solid var(--yellow);
+    padding: 0.5rem;
+    margin-bottom: 4vh;
+    transform: scale(0);
+    animation: bob-in 0.5s 0.5s forwards cubic-bezier(0.47, 1.64, 0.41, 0.8);
+
+    @keyframes bob-in {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+  }
+
+  #name,
+  #surname {
+    font-family: "Roboto", sans-serif;
+    pointer-events: none;
+    font-size: 15vh;
+    line-height: 15vh;
+    margin: 0;
+
+    div {
+      opacity: 0;
+      color: transparent;
+      transform: scale(0);
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  #name {
+    font-weight: 600;
+    margin-right: 4vh;
+
+    div {
+      @for $i from 1 through 5 {
+        &:nth-of-type(#{$i}) {
+          animation: bob-in-color 0.5s #{$i * 100}ms forwards cubic-bezier(0.47, 1.64, 0.41, 0.8);
+        }
+      }
+    }
+  }
+
+  #surname {
+    font-weight: 400;
+
+    div {
+      @for $i from 1 through 6 {
+        &:nth-of-type(#{$i}) {
+          animation: bob-in-color 0.5s #{($i + 5) * 100}ms forwards cubic-bezier(0.47, 1.64, 0.41, 0.8);
+        }
+      }
+    }
+  }
+
+  #developer {
+    position: relative;
+    font-weight: 500;
+    margin: 0;
+    padding: 0.5rem;
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
+    color: white;
+    animation: drop-flip 0.5s 1s forwards;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    font-size: 8vh;
+    line-height: 8vh;
+    margin-right: 2vh;
+
+    &::after {
+      -webkit-text-stroke: 2px transparent;
+      pointer-events: none;
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0.5rem;
+      background-image: url(https://media.giphy.com/media/xThuW2fbatiCsyY3zW/giphy.gif);
+      filter: brightness(1.5) saturate(1.5);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      clip-path: var(--centroid);
+    }
+  }
+
+  #profile {
+    pointer-events: none;
+    font-weight: 200;
+    font-size: 7vh;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0px 0px 12px rgb(0, 0, 0);
+    color: white;
+    animation: slide-right 0.4s 1.4s forwards;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+}
+
+app-media-links {
+  margin-top: 5vh;
+}
+
+@keyframes expand {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 10rem;
+    opacity: 1;
+  }
+}
+
+@keyframes bob-in-color {
+  to {
+    color: var(--yellow);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes drop-flip {
+  from {
+    transform: translateY(-2rem);
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  to {
+    transform: translateY(0rem);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
