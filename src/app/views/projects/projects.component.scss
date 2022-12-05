@@ -1,0 +1,320 @@
+#projects {
+  padding-top: 5rem;
+  min-height: 100vh;
+  margin-top: 10rem;
+}
+
+.container {
+  position: relative;
+}
+
+section {
+  // box-sizing: margin-box;
+  width: 100vw;
+  // margin: 1rem;
+  // margin-left: 6.5rem;
+  // margin-top: 10rem;
+}
+
+.project-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  transition: flex 0.5s ease;
+  margin: 0.5rem;
+  position: relative;
+  // box-shadow: rgba(0, 0, 0, 0.582) 5px 5px 15px 4px;
+  height: fit-content;
+
+  &:hover {
+    flex: 5;
+
+    .info-container {
+      // position: relative;
+      .fa-info {
+        clip-path: circle(141% at 100% 100%);
+        transition: clip-path 0.2s 0.5s, opacity 0.2s 0.5s;
+        animation: attention 2s 1s infinite forwards;
+
+        @keyframes attention {
+          40% {
+            padding: 1rem 0.5rem 0.5rem 1rem;
+          }
+          50% {
+            padding: 1.5rem 1rem 1rem 1.5rem;
+          }
+          60% {
+            padding: 1rem 0.5rem 0.5rem 1rem;
+          }
+        }
+      }
+
+      &:hover {
+        clip-path: circle(150% at 100% 100%);
+
+        .fa-info {
+          transition: clip-path 0.2s 0.5s, opacity 0.2s;
+          opacity: 0;
+        }
+
+        .text-container {
+          opacity: 1;
+          clip-path: circle(150% at 100% 100%);
+          transition: clip-path 0.5s, opacity 0.2s;
+        }
+      }
+    }
+
+    .clip-img {
+      clip-path: circle(150% at 100% 100%);
+    }
+  }
+
+  .clip-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: circle(0% at 100% 100%);
+    transition: clip-path 0.7s;
+  }
+
+  .bg-img {
+    filter: grayscale(1) brightness(0.5) sepia(1);
+  }
+
+  &::after {
+    position: absolute;
+    bottom: -0.75rem;
+    right: -0.75rem;
+    content: ",";
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--lilac);
+  }
+}
+
+// .projects-title {
+//   position: absolute;
+//   transform-origin: 0% 0%;
+//   transform: rotate(-90deg);
+//   width: fit-content;
+//   margin-top: 30rem;
+//   padding: 0 4rem;
+//   // background: linear-gradient(0deg, #9d00ff00 20%, #9d00ff 100%);
+//   background: linear-gradient(0deg, #9d00ff00 20%, white 100%);
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     // background: rgb(0,0,0);
+//     background: linear-gradient(90deg, #191932 0%, #19193200 40%, #19193200 60%, #191932 100%);
+//   }
+
+h1 {
+  color: white;
+  // margin-top: 20rem;
+  font-size: 6rem;
+}
+span {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--lilac);
+}
+
+img {
+  display: block;
+  width: 100%;
+  min-height: 20rem;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.info-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20rem;
+  clip-path: circle(5rem at 100% 100%);
+  transition: clip-path 0.5s;
+}
+
+.fa-info {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  clip-path: circle(0% at 100% 100%);
+  color: black;
+  font-size: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 1rem 0.5rem 0.5rem 1rem;
+  margin: 0;
+  background-color: rgba(245, 245, 245, 0.726);
+  box-shadow: 2px 0px 10px 5px rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 100%;
+  // transition: clip-path 0.75s, opacity 0.5s 1.75s;
+}
+
+.text-container {
+  height: 18rem;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: calc(100% - 4rem);
+  background: rgba(0, 0, 0, 0.8);
+  clip-path: circle(5rem at 100% 100%);
+  opacity: 0;
+  transition: clip-path 0.5s, opacity 0.25s 0.25s;
+  padding: 2rem;
+  backdrop-filter: blur(8px) brightness(0.8) saturate(0.5);
+
+  h2 {
+    font-size: 1.2rem;
+    color: var(--hospital-blue);
+    margin: 0 0 1rem 0;
+  }
+
+  p {
+    color: white;
+    margin: 0 0 1rem 0;
+  }
+
+  p {
+    // padding-left: 0.5rem;
+    font-size: 0.8rem;
+    // line-height: 1rem;
+  }
+
+  a,
+  button {
+    position: relative;
+    text-decoration: none;
+    margin: 0.5rem 0;
+    padding: 0 0.5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.3) 5px 0px 15px 3px;
+  }
+
+  button {
+    height: calc(2.5rem + 4px);
+    padding: 0 1rem;
+    margin-left: 0.5rem;
+  }
+
+  a {
+    height: 2.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .link {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--hospital-blue);
+    color: var(--hospital-blue);
+    transition: background 0.2s;
+
+    &:hover {
+      background: #0e244ba1;
+    }
+  }
+  .play {
+    background: var(--hospital-blue);
+    transition: background 0.2s;
+    color: black;
+
+    &:hover {
+      background: #4a8cff;
+    }
+  }
+}
+
+.technologies span img {
+  height: 2rem;
+  min-height: auto;
+  border-radius: 0;
+}
+
+.technologies span {
+  margin: 1rem 0.5rem;
+}
+
+.fa-play {
+  margin-left: 0.5rem;
+}
+
+.fa-github {
+  margin-left: 0.5rem;
+  color: var(--hospital-blue);
+  font-size: 1.5rem;
+}
+
+// new stuff
+
+.scroll-container {
+  max-width: 100vw;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
+
+.content-container {
+  // height: fit-content;
+  display: flex;
+  flex-direction: row;
+  // flex: 5;
+  max-height: 30vw;
+  width: fit-content;
+
+  background-color: gray;
+  outline: 1px solid red;
+}
+
+.carousel-item {
+  scroll-snap-type: mandatory;
+  scroll-snap-align: center;
+  width: calc(100vw - 2rem);
+  outline: 1px solid red;
+  margin: 1rem;
+  background-color: white;
+  display: inline-block;
+
+  .item-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 100%;
+  }
+}
+
+::-webkit-scrollbar {
+  // background: black;
+  // width: 15px;
+  height: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0f0f1a;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.5rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

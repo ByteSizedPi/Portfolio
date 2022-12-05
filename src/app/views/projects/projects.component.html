@@ -1,0 +1,16 @@
+<section class="scroll-container" [scrollListener]="LINK.PROJECTS">
+  <section class="content-container">
+    <span
+      *ngFor="let project of projects; index as i"
+      carouselItem
+      class="carousel-item"
+    >
+      <div class="item-content">
+        <app-project-media
+          [img]="'./assets/images/' + project.imgLink"
+        ></app-project-media>
+        {{ i }}
+      </div>
+    </span>
+  </section>
+</section>

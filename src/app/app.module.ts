@@ -8,9 +8,12 @@ import { ScrollListenerDirective } from './shared/directives/scroll-listener.dir
 import { HomeComponent } from './views/home/home.component';
 import { ImgLoadDirective } from './shared/directives/img-load.directive';
 import { MediaLinksComponent } from './views/home/media-links/media-links.component';
+import { AboutComponent } from './views/about/about.component';
+import { ProjectsComponent } from './views/projects/projects.component';
+import { ProjectMediaComponent } from './views/projects/project-media/project-media.component';
 
 @NgModule({
-  declarations: [AppComponent, TopNavComponent, ScrollListenerDirective, HomeComponent, ImgLoadDirective, MediaLinksComponent],
+  declarations: [AppComponent, TopNavComponent, ScrollListenerDirective, HomeComponent, ImgLoadDirective, MediaLinksComponent, AboutComponent, ProjectsComponent, ProjectMediaComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

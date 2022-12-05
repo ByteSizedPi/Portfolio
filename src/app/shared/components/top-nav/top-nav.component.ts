@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '../../services/navigation.service';
+import { LINK, NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'top-nav',
@@ -7,26 +7,25 @@ import { NavigationService } from '../../services/navigation.service';
   styleUrls: ['./top-nav.component.scss'],
 })
 export class TopNavComponent {
-  prevLink: number = 0;
+  prevLink: LINK = LINK.HOME;
   navOpen: boolean = false;
 
-  links = [
-    { text: 'home', isActive: true },
-    { text: 'about', isActive: false },
-    { text: 'skills', isActive: false },
-    { text: 'projects', isActive: false },
-    { text: 'contact', isActive: false },
-  ];
+  links = new Map<LINK, boolean>()
+    .set(LINK.HOME, true)
+    .set(LINK.ABOUT, false)
+    .set(LINK.PROJECTS, false)
+    .set(LINK.CONTACT, false);
 
   constructor(public nav: NavigationService) {
-    this.nav.navEvent.subscribe((link) => {
-      this.setActive(2);
-      console.log('hello');
-    });
+    this.nav.navEvent.subscribe(this.setActive.bind(this));
   }
 
-  setActive(index: number) {
-    this.links[this.prevLink].isActive = false;
-    this.links[(this.prevLink = index)].isActive = true;
+  getLinks() {
+    return Array.from(this.links);
+  }
+
+  setActive(index: LINK) {
+    this.links.set(this.prevLink, false);
+    this.links.set((this.prevLink = index), true);
   }
 }
