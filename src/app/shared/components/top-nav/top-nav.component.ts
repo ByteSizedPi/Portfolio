@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Utils } from '../../models/Utils';
 import { LINK, NavigationService } from '../../services/navigation.service';
 
 @Component({
@@ -6,7 +7,8 @@ import { LINK, NavigationService } from '../../services/navigation.service';
   templateUrl: './top-nav.component.html',
   styleUrls: ['./top-nav.component.scss'],
 })
-export class TopNavComponent {
+export class TopNavComponent extends Utils {
+  Array = Array;
   prevLink: LINK = LINK.HOME;
   navOpen: boolean = false;
 
@@ -16,16 +18,24 @@ export class TopNavComponent {
     .set(LINK.PROJECTS, false)
     .set(LINK.CONTACT, false);
 
+  altLinks = ['home', 'about', 'projects', 'contact'];
+
   constructor(public nav: NavigationService) {
-    this.nav.navEvent.subscribe(this.setActive.bind(this));
+    super();
+    // this.setActive(this.prevLink);
+    this.nav.navEvent.subscribe((link) => {
+      this.setActive(link);
+      // console.log('event');
+    });
   }
 
-  getLinks() {
-    return Array.from(this.links);
-  }
+  setActive(link: LINK) {
+    // if (this.prevLink == link) return;
 
-  setActive(index: LINK) {
     this.links.set(this.prevLink, false);
-    this.links.set((this.prevLink = index), true);
+    this.Id(`${this.prevLink}-link`).classList.remove('link-active');
+
+    this.links.set((this.prevLink = link), true);
+    this.Id(`${this.prevLink}-link`).classList.add('link-active');
   }
 }

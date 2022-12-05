@@ -1,3 +1,139 @@
 section {
-  min-height: 100vh;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 6rem;
+  overflow: hidden;
+  height: 100vh;
+  background-color: var(--deep-blue);
+  // border: 2px solid red;
+  margin-top: 10rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    // border: 2px solid red;
+    top: -10rem;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    // background-color: var(--deep-blue);
+    // background-color: black;
+    background: var(--deep-blue);
+    background: linear-gradient(0deg, #191932 0%, #19193200 100%);
+  }
+}
+
+.tag-open {
+  font-size: 1rem;
+  color: var(--lilac);
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+.tag-close {
+  font-size: 1rem;
+  color: var(--lilac);
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.text {
+  position: relative;
+  justify-self: center;
+  h2 {
+    width: fit-content;
+    color: var(--green);
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    justify-self: center;
+  }
+  p {
+    margin: 0 5rem 0 1rem;
+    color: rgb(224, 224, 224);
+    font-weight: 200;
+    box-sizing: border-box;
+  }
+
+  b {
+    color: hsl(156, 100%, 60%);
+  }
+}
+
+img {
+  position: relative;
+  width: 100%;
+  place-self: center;
+  object-fit: cover;
+}
+
+.btn-liquid {
+  display: inline-block;
+  position: relative;
+  width: 160px;
+  height: 52px;
+  color: var(--deep-blue);
+  font: 700 1.2rem/60px "Poppins", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 26px;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.btn-liquid .inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+button {
+  position: relative;
+  z-index: 2;
+  width: 160px;
+  height: 52px;
+  margin-left: 2rem;
+  border: 2px solid var(--green);
+  a {
+    color: var(--green);
+  }
+  background: transparent;
+  outline: none;
+  border-radius: 26px;
+  font: 700 1.2rem "Poppins", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.1s, border-width 0.1s;
+
+  &:hover {
+    background-color: #15694763;
+    border-width: 4px;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+@media (min-width: 480px) {
+  .btn-liquid {
+    background: none;
+  }
+}
+
+@media (max-width: 768px) {
+  img {
+    display: none;
+  }
+
+  section {
+    grid-template-columns: 1fr;
+  }
+
+  .row {
+    justify-content: space-between;
+  }
 }

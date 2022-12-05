@@ -1,13 +1,12 @@
 <nav class="space-between row">
-  <span class="center-vertical row links nav-open">
+  <span class="center-vertical row links">
     <a
-      *ngFor="let link of getLinks()"
+      *ngFor="let link of altLinks; index as i"
       class="center link"
-      [href]="'#' + link[0]"
-      [ngClass]="link[1] ? 'link-active' : ''"
-      [id]="link[0] + '-link'"
+      [href]="'#' + link"
+      [id]="link + '-link'"
     >
-      {{ link[0] | titlecase }}
+      {{ link | titlecase }}
     </a>
   </span>
 </nav>

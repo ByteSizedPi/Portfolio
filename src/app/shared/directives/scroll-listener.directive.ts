@@ -16,7 +16,7 @@ export class ScrollListenerDirective {
         filter((top) => top <= 100)
       )
       .subscribe(() => {
-        this.el.nativeElement.id = this.scrollListener;
+        // this.el.nativeElement.id = this.scrollListener;
         this.nav.navEvent.emit(this.scrollListener);
         console.log(this.scrollListener);
       });

@@ -1,4 +1,8 @@
-<section class="scroll-container" [scrollListener]="LINK.PROJECTS">
+<section
+  class="scroll-container"
+  [scrollListener]="LINK.PROJECTS"
+  [id]="LINK.PROJECTS"
+>
   <section class="content-container">
     <span
       *ngFor="let project of projects; index as i"

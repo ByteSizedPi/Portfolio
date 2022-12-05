@@ -46,9 +46,10 @@ h2 {
   }
 }
 
-$duration: 0.2s;
-$distance: 8px;
+$duration: 0.4s;
+$distance: 12px;
 $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
 .link {
   margin: 0;
   padding: 0 0.75rem;
@@ -57,14 +58,15 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-decoration: none;
   color: white;
   position: relative;
-  transition: color 0.2s;
+  transition: color 1s;
   font-weight: 200;
-  width: fit-content;
   height: 3rem;
+
   &:hover {
     color: var(--yellow);
   }
-  &:before,
+
+  // &:before,
   &:after {
     content: "";
     position: absolute;
@@ -76,30 +78,55 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border-radius: 4px;
     width: calc(100% - 1.2rem);
   }
-  &:before {
-    opacity: 0;
-    transform: translateY(-$distance);
-    transition: transform 0s $easeOutBack, opacity 0s;
-  }
+  // &:before {
+  //   opacity: 0;
+  //   transform: translateY(-$distance);
+  //   transition: transform 0s $easeOutBack, opacity 0s;
+  // }
   &:after {
-    opacity: 0;
-    transform: translateY($distance/2);
-    transition: transform $duration $easeOutBack, opacity $duration;
+    animation: fall-out $duration forwards;
+    // opacity: 0;
+    // transform: translateY($distance/2);
+    // transition: transform $duration $easeOutBack, opacity $duration;
   }
 }
 
 .link-active {
   color: var(--yellow);
   font-weight: 500;
-  &:before,
   &:after {
+    animation: fall-in $duration forwards;
+    // opacity: 1;
+    // transform: translateY(0);
+    // transition: transform 1s, opacity 1s;
+    // transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+  }
+  // &:before {
+  //   transition: transform $duration $easeOutBack, opacity $duration;
+  // }
+  // &:after {
+  //   transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+  // }
+}
+
+@keyframes fall-in {
+  from {
+    opacity: 0;
+    transform: translateY($distance/2);
+  }
+  to {
     opacity: 1;
     transform: translateY(0);
   }
-  &:before {
-    transition: transform $duration $easeOutBack, opacity $duration;
+}
+
+@keyframes fall-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
   }
-  &:after {
-    transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+  to {
+    opacity: 0;
+    transform: translateY($distance);
   }
 }

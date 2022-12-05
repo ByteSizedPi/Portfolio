@@ -1,13 +1,13 @@
 section {
   height: 100vh;
-  overflow-x: hidden;
-  border-bottom: 2px solid red;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 #bg {
   position: fixed;
   width: 100vw;
-  // height: calc(100vh + 3rem);
   height: 100vh;
   top: 0;
   left: 0;
@@ -19,14 +19,13 @@ section {
     left: 0;
     content: "";
     width: 100%;
-    height: 100%;
+    height: calc(100vh + 10rem);
     background: #20265a79;
   }
 
   img {
     width: 100vw;
-    // height: calc(100vh + 3rem);
-    height: 100vh;
+    height: calc(100vh + 10rem);
     position: absolute;
     object-fit: cover;
     object-position: center;
@@ -34,18 +33,15 @@ section {
   }
 }
 
-#home {
-  overflow: hidden;
-}
-
 #text {
-  box-sizing: border-box;
+  // box-sizing: border-box;
+  height: calc(100vh - 7rem);
+  // width: calc(100vw - 2rem);
   width: 100vw;
-  height: 100vh;
   position: relative;
   transform: scale(1);
   padding: 3rem 0;
-  overflow: hidden;
+  // overflow: hidden;
 
   #portrait {
     height: 20vh;
