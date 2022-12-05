@@ -1,0 +1,137 @@
+section {
+  background-color: rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  height: 100%;
+  padding: 2rem;
+  color: white;
+}
+
+h2 {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin: 0;
+  color: var(--hospital-blue);
+}
+
+p {
+  margin-left: 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.live-button {
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+  height: 0.8rem;
+  width: 4rem;
+  border-radius: 15px;
+  background-color: var(--green);
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 8px, hsl(156, 84%, 60%) 2px 2px 4px inset,
+    hsl(156, 84%, 25%) -2px -2px 4px inset;
+  padding: 1rem;
+  position: relative;
+  z-index: 2;
+  outline: 2px solid var(--royal);
+  outline-offset: 8px;
+  transition: outline 1s;
+
+  &::after,
+  &::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    padding: 1rem;
+    border-radius: 50px;
+    outline: 2px solid var(--royal);
+    // outline-offset: 2px;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  // &:hover {
+  outline: 2px solid transparent;
+  &::after {
+    animation: grow 1.5s forwards infinite linear;
+  }
+
+  &::before {
+    animation: grow 1.5s 0.75s forwards infinite linear;
+  }
+
+  h3 {
+    color: white;
+    font-family: "Montserrat";
+  }
+
+  @keyframes grow {
+    0% {
+      opacity: 0;
+      transform: scaleX(1) scaleY(1);
+      outline-offset: 0px;
+    }
+    50% {
+      opacity: 0.5;
+      outline: 2px solid var(--green);
+    }
+    100% {
+      opacity: 0;
+      outline-offset: 12px;
+      outline: 4px solid var(--green);
+    }
+  }
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  margin: 0.5rem 0;
+  padding: 0 0.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 5px 0px 15px 3px;
+  color: var(--hospital-blue);
+}
+
+.link {
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--hospital-blue);
+  color: var(--hospital-blue);
+  transition: background 0.2s;
+
+  &:hover {
+    background: #0e244ba1;
+  }
+}
+
+a {
+  height: 2.5rem;
+  margin-right: 0.5rem;
+}
+
+.fa-github {
+  margin-right: 0.5rem;
+  color: var(--hospital-blue);
+  font-size: 1.5rem;
+}
+
+.technologies span img {
+  height: 2rem;
+  min-height: auto;
+  border-radius: 0;
+}
+
+.technologies span {
+  margin: 1rem 0.5rem;
+}

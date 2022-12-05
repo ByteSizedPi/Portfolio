@@ -82,12 +82,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(240, 25%, 30%);
+  background: hsl(240, 15%, 30%);
   border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: hsl(240, 15%, 40%);
 }
 
 .no-scroll {

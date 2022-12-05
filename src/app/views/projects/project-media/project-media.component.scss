@@ -1,10 +1,27 @@
-img {
-  display: block;
-  width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+section {
+  position: relative;
 }
 
-section {
-  max-height: 100%;
+.main {
+  position: relative;
+  display: block;
+  // max-width: 100%;
+  width: 100%;
+  // height: fit-content;
+  height: calc(30vw - 2rem);
+  object-fit: contain;
+  z-index: 3;
+}
+
+.bg {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  // max-width: 100%;
+  width: 100%;
+  margin: -1rem;
+  // height: fit-content;
+  height: 30vw;
+  object-fit: fill;
+  filter: blur(25px);
 }

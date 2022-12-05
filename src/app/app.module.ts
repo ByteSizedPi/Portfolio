@@ -11,9 +11,10 @@ import { MediaLinksComponent } from './views/home/media-links/media-links.compon
 import { AboutComponent } from './views/about/about.component';
 import { ProjectsComponent } from './views/projects/projects.component';
 import { ProjectMediaComponent } from './views/projects/project-media/project-media.component';
+import { InfoComponent } from './views/projects/info/info.component';
 
 @NgModule({
-  declarations: [AppComponent, TopNavComponent, ScrollListenerDirective, HomeComponent, ImgLoadDirective, MediaLinksComponent, AboutComponent, ProjectsComponent, ProjectMediaComponent],
+  declarations: [AppComponent, TopNavComponent, ScrollListenerDirective, HomeComponent, ImgLoadDirective, MediaLinksComponent, AboutComponent, ProjectsComponent, ProjectMediaComponent, InfoComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
