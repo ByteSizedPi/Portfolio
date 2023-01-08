@@ -1,4 +1,9 @@
 <nav class="space-between row">
+  <img
+    src="../../../../assets/images/ByteSizedPi.png"
+    (load)="onLoad($event)"
+    alt=""
+  />
   <span class="center-vertical row links">
     <a
       *ngFor="let link of altLinks; index as i"

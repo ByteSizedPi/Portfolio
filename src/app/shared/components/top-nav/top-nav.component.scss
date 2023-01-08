@@ -3,7 +3,7 @@ nav {
   position: fixed;
   box-sizing: border-box;
   width: 100%;
-  height: 3rem;
+  height: 3.5rem;
   color: white;
   padding-left: 0.5rem;
   // background-color: var(--deep-blue);
@@ -66,7 +66,6 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     color: var(--yellow);
   }
 
-  // &:before,
   &:after {
     content: "";
     position: absolute;
@@ -78,16 +77,8 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border-radius: 4px;
     width: calc(100% - 1.2rem);
   }
-  // &:before {
-  //   opacity: 0;
-  //   transform: translateY(-$distance);
-  //   transition: transform 0s $easeOutBack, opacity 0s;
-  // }
   &:after {
     animation: fall-out $duration forwards;
-    // opacity: 0;
-    // transform: translateY($distance/2);
-    // transition: transform $duration $easeOutBack, opacity $duration;
   }
 }
 
@@ -96,17 +87,12 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   font-weight: 500;
   &:after {
     animation: fall-in $duration forwards;
-    // opacity: 1;
-    // transform: translateY(0);
-    // transition: transform 1s, opacity 1s;
-    // transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
   }
-  // &:before {
-  //   transition: transform $duration $easeOutBack, opacity $duration;
-  // }
-  // &:after {
-  //   transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
-  // }
+}
+
+img {
+  border-radius: 50%;
+  margin: 0.5rem;
 }
 
 @keyframes fall-in {
