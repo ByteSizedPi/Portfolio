@@ -79,14 +79,16 @@ img {
   text-decoration: none;
   cursor: pointer;
   border-radius: 26px;
+  transition: transform 0.05s;
 
   &:active {
-    transform: scale(0.9);
+    transform: scale(0.92);
   }
 }
 
 .btn-liquid .inner {
   position: relative;
+  // position: absolute;
   z-index: 2;
   height: 100%;
 }
@@ -95,26 +97,26 @@ button {
   position: relative;
   z-index: 2;
   width: 160px;
-  height: 52px;
+  height: 50px;
   margin-left: 2rem;
-  border: 2px solid var(--green);
+  border: none;
   a {
     color: var(--green);
   }
   background: transparent;
-  outline: none;
+  outline: 2px solid var(--green);
   border-radius: 26px;
   font: 700 1.2rem "Poppins", sans-serif;
   cursor: pointer;
-  transition: background-color 0.1s, border-width 0.1s;
+  transition: background-color 0.1s, outline 0.1s, transform 0.05s;
 
   &:hover {
     background-color: #15694763;
-    border-width: 4px;
+    outline: 4px solid var(--green);
   }
 
   &:active {
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
 }
 

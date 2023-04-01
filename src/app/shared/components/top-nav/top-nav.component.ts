@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Utils } from '../../models/Utils';
-import { LINK, NavigationService } from '../../services/navigation.service';
+import { NavigationService } from '../../services/navigation.service';
+import { LINK } from '../../services/scroll.service';
 
 @Component({
   selector: 'top-nav',
@@ -15,10 +16,12 @@ export class TopNavComponent extends Utils {
   links = new Map<LINK, boolean>()
     .set(LINK.HOME, true)
     .set(LINK.ABOUT, false)
+    .set(LINK.SKILLS, false)
     .set(LINK.PROJECTS, false)
     .set(LINK.CONTACT, false);
 
-  altLinks = ['home', 'about', 'projects', 'contact'];
+  // altLinks = ['home', 'about', 'projects', 'contact'];
+  altLinks: string[] = Object.values(LINK);
 
   constructor(public nav: NavigationService) {
     super();

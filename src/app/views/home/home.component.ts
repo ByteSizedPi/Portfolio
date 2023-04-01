@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MediaQueriesService } from 'src/app/shared/services/media-queries.service';
+import { ScrollService } from 'src/app/shared/services/scroll.service';
 import { Utils } from '../../shared/models/Utils';
-import {
-  NavigationService,
-  LINK,
-} from '../../shared/services/navigation.service';
 
 @Component({
   selector: 'home',
@@ -13,9 +11,13 @@ import {
 export class HomeComponent extends Utils implements OnInit {
   public loaded = false;
 
-  constructor(public nav: NavigationService) {
+  constructor(
+    private mediaQ: MediaQueriesService,
+    private scrollService: ScrollService
+  ) {
     super();
   }
+
   circleClip() {
     let dev = this.Id('developer');
     let root = document.documentElement;
@@ -31,6 +33,7 @@ export class HomeComponent extends Utils implements OnInit {
         'circle(30% at ' + xperc + '% ' + yperc + '%)'
       );
     });
+
     dev.addEventListener('mouseleave', (e) => {
       root.style.setProperty('--centroid', 'circle(0% at 0% 0%)');
     });
@@ -45,11 +48,12 @@ export class HomeComponent extends Utils implements OnInit {
     // }, 10);
   }
 
-  scrollEvent() {
+  scrollBG() {
+    if (this.mediaQ.isMobile) return;
+
     const bg = this.Id('bg');
     const text = this.Id('text');
 
-    // window.addEventListener('scroll', () => {
     //set filter + img top
     let perc = this.constrain(1 - window.scrollY / bg.clientHeight, 0, 1);
 
@@ -64,17 +68,13 @@ export class HomeComponent extends Utils implements OnInit {
     text.style.transform = `scale(${1 + 0.4 * perc}) translateY(${
       perc * -5
     }rem)`;
-    // });
   }
 
   load = (event: Event) => {
     this.loaded = true;
-    // this.onLoad(event);
-    // this.mediaQueries.init();
     setTimeout(() => {
-      this.circleClip();
-      this.scrollEvent();
-      window.addEventListener('scroll', this.scrollEvent.bind(this));
+      this.scrollBG();
+      this.scrollService.onScroll.subscribe(() => this.scrollBG());
     }, 0);
   };
 }

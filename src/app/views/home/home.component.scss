@@ -116,24 +116,24 @@ section {
     line-height: 8vh;
     margin-right: 2vh;
 
-    &::after {
-      -webkit-text-stroke: 2px transparent;
-      pointer-events: none;
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      top: 0;
-      padding: 0.5rem;
-      background-image: url(https://media.giphy.com/media/xThuW2fbatiCsyY3zW/giphy.gif);
-      filter: brightness(1.5) saturate(1.5);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      clip-path: var(--centroid);
-    }
+    // &::after {
+    //   -webkit-text-stroke: 2px transparent;
+    //   pointer-events: none;
+    //   content: attr(data-text);
+    //   position: absolute;
+    //   left: 0;
+    //   top: 0;
+    //   padding: 0.5rem;
+    //   // background-image: url(https://media.giphy.com/media/xThuW2fbatiCsyY3zW/giphy.gif);
+    //   filter: brightness(1.5) saturate(1.5);
+    //   background-position: center;
+    //   background-repeat: no-repeat;
+    //   background-size: cover;
+    //   background-clip: text;
+    //   -webkit-background-clip: text;
+    //   color: transparent;
+    //   clip-path: var(--centroid);
+    // }
   }
 
   #profile {

@@ -64,6 +64,15 @@ body {
   flex-direction: row;
 }
 
+.btn-liquid canvas {
+  color: black;
+  background: transparent;
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  z-index: 1;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

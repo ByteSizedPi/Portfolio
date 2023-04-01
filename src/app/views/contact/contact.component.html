@@ -1,0 +1,65 @@
+<section [scrollListener]="LINK.CONTACT" [id]="LINK.CONTACT" class="center">
+  <div class="content column center-vertical">
+    <h1>Contact Me</h1>
+    <ul class="space-between">
+      <li class="center space-between">
+        <div class="row">
+          <i class="fas fa-envelope row center"> </i>
+          <h3>Email:</h3>
+        </div>
+        <span class="item">
+          <a [href]="email" target="_blank"> {{ email }} </a>
+          <i class="fa-regular fa-copy" (click)="copy(email)"></i>
+        </span>
+      </li>
+      <li class="center space-between">
+        <div class="row">
+          <i class="fas fa-phone row center"> </i>
+          <h3>Mobile:</h3>
+        </div>
+        <span class="item">
+          <span href="#"> {{ number }} </span>
+          <i class="fa-regular fa-copy" (click)="copy(number)"></i>
+        </span>
+      </li>
+      <li class="center space-between">
+        <div class="row">
+          <i class="fab fa-github row center"> </i>
+          <h3>Github:</h3>
+        </div>
+        <span class="item">
+          <a [href]="github" target="_blank">
+            {{ github }}
+          </a>
+          <i class="fa-regular fa-copy" (click)="copy(github)"></i>
+        </span>
+      </li>
+      <li class="center space-between">
+        <div class="row">
+          <i class="fab fa-linkedin row center"></i>
+          <h3>LinkedIn:</h3>
+        </div>
+        <span class="item">
+          <a [href]="linkedin" target="_blank">
+            {{ linkedin }}
+          </a>
+          <i class="fa-regular fa-copy" (click)="copy(linkedin)"></i>
+        </span>
+      </li>
+      <li class="contact-item center space-between">
+        <div class="row">
+          <i class="fab fa-instagram center space-between"></i>
+          <h3>Instagram:</h3>
+        </div>
+        <span class="item">
+          <a [href]="instagram" target="_blank">
+            {{ instagram }}
+          </a>
+          <i class="fa-regular fa-copy" (click)="copy(instagram)"></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <electric-bezier></electric-bezier>
+  <!-- <app-popup [show]="show"></app-popup> -->
+</section>

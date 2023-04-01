@@ -1,0 +1,244 @@
+* {
+  --height: 13rem;
+  --base: 0.866;
+  --margins: 0.75rem;
+}
+
+#skills {
+  padding-top: 5rem;
+  overflow: hidden;
+}
+
+.skills-text,
+.skills-text-rotated {
+  position: relative;
+  z-index: 2;
+
+  h2 {
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+    position: absolute;
+    font-size: 7rem;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 2rem;
+    letter-spacing: 5px;
+    -webkit-text-stroke: 8px transparent;
+    color: transparent;
+
+    background: linear-gradient(90deg, var(--lilac) 0%, var(--green) 33.3%, var(--green) 66.7%, var(--lilac) 100%);
+    background-size: 200% 100%;
+    animation: scroll-bg 4s forwards infinite ease-in-out;
+    background-clip: text;
+
+    &::after {
+      content: "SkillsSkillsSkillsSkillsSkillsSkillsSkillsSkillsSkills";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: var(--deep-blue);
+    }
+
+    @keyframes scroll-bg {
+      from {
+        background-position: 0% 0%;
+      }
+
+      to {
+        background-position: 200% 0%;
+      }
+    }
+  }
+}
+
+.skills-text-rotated {
+  h2 {
+    margin-top: 3rem;
+    transform: rotateX(180deg);
+  }
+}
+
+.scroll-container {
+  margin: 3rem 0 5rem 0;
+  // background-color: hsl(240, 33%, 30%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+      0deg,
+      var(--deep-blue) 0%,
+      var(--deep-blue) 10%,
+      #19193200 50%,
+      var(--deep-blue) 85%,
+      var(--deep-blue) 100%
+    ),
+    linear-gradient(45deg, var(--lilac) 0%, var(--green) 100%);
+  // height: calc(100% - 10rem);
+  overflow: hidden;
+}
+
+.card-container {
+  perspective: 1000px;
+  height: calc(3 * var(--height) / 2 + 2 * var(--margins) * var(--base));
+}
+
+.row-container .card-container:nth-child(odd) {
+  transform: translate(calc((var(--height) + var(--margins)) * var(--base)), 0);
+}
+
+.card {
+  // position: relative;
+  // z-index: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  // background-color: var(--deep-blue);
+  height: calc(2 * var(--height));
+  width: calc(2 * var(--height) * var(--base));
+  margin: var(--margins);
+  transition: transform 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8), outline 0.1s;
+  transform: scale(0);
+  transform-style: preserve-3d;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    // background-color: white;
+    background-color: var(--deep-blue);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    width: 100%;
+    height: 100%;
+    transition: width 0.1s, height 0.1s;
+    // outline: 2px solid;
+  }
+
+  &:hover {
+    &::before {
+      width: calc(100% - 0.75rem);
+      height: calc(100% - 0.75rem);
+    }
+  }
+
+  img {
+    object-position: center;
+    width: 4rem;
+    height: 4rem;
+    // margin-top: 2rem;
+  }
+
+  h3 {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    transform: translateZ(2rem);
+  }
+
+  .item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 2rem;
+
+    span {
+      margin: 0.25rem;
+    }
+  }
+
+  span {
+    color: hsl(0, 0%, 60%);
+    font-weight: 400;
+    img {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+}
+
+#Javascript {
+  background-color: #f0dc50;
+}
+
+#Typescript {
+  background-color: #007acc;
+}
+
+#Java {
+  background-color: #e76f00;
+}
+
+#Angular {
+  background-color: #e23237;
+}
+
+#HTML {
+  background-color: #f1652a;
+}
+
+#CSS {
+  background-color: #33a9dc;
+}
+
+#Sass {
+  background-color: #cf649a;
+}
+
+#Node {
+  background-color: #5cab46;
+}
+
+#SQL {
+  background-color: #ea1b22;
+}
+
+#PHP {
+  background-color: #8993be;
+}
+#Python {
+  background-color: #417eaf;
+}
+
+@keyframes swivel {
+  0% {
+    transform: rotateZ(0deg) translateZ(3rem);
+  }
+  50% {
+    transform: rotateZ(-5deg) translateZ(3rem);
+  }
+  100% {
+    transform: rotateZ(5deg) translateZ(3rem);
+  }
+}
+
+@keyframes bob-in {
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-container {
+    &::-webkit-scrollbar {
+      height: 0px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(95, 95, 95);
+      border-radius: 5px;
+    }
+  }
+
+  .card img {
+    filter: none;
+  }
+
+  .skill-container {
+    padding: 2rem;
+    &:hover {
+      img {
+        animation: none;
+      }
+    }
+  }
+}

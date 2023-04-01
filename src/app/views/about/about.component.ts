@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Utils } from '../../shared/models/Utils';
 import { NavigationService } from '../../shared/services/navigation.service';
-// import liquidButton from './liquidButton';
+import liquidButton from './liquidButton';
 
 @Component({
   selector: 'about',
@@ -11,6 +11,7 @@ import { NavigationService } from '../../shared/services/navigation.service';
 export class AboutComponent extends Utils implements OnInit {
   constructor(private navService: NavigationService) {
     super();
+    liquidButton();
   }
 
   ngOnInit(): void {

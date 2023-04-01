@@ -1,0 +1,49 @@
+<section [scrollListener]="LINK.SKILLS" [id]="LINK.SKILLS">
+  <!-- <electric-bezier></electric-bezier> -->
+  <div class="row skills-text">
+    <h2>SkillsSkillsSkillsSkillsSkillsSkillsSkillsSkillsSkills</h2>
+  </div>
+  <div class="scroll-container center">
+    <div class="row-container">
+      <div
+        class="card-container row center"
+        *ngFor="let box of rows; index as i"
+      >
+        <div
+          class="card column center"
+          *ngFor="let box of boxes; index as j"
+          [style.backgroundColor]="
+            skills[6 * i + j]?.color || 'var(--deep-blue)'
+          "
+        >
+          <ng-container *ngIf="skills[6 * i + j]">
+            <img
+              [src]="'./assets/svg/' + skills[6 * i + j]?.link"
+              (load)="onLoad($event)"
+            />
+            <h3>{{ skills[6 * i + j]?.name }}</h3>
+            <div class="item">
+              <span *ngFor="let item of skills[6 * i + j]?.items">
+                {{ item }}
+              </span>
+            </div>
+            <span
+              *ngFor="let lang of skills[6 * i + j]?.langs"
+              [style.color]="lang.color"
+            >
+              <img
+                [src]="'./assets/svg/' + lang.link"
+                (load)="onLoad($event)"
+              />
+              {{ lang.name }}
+            </span>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row skills-text-rotated">
+    <h2>SkillsSkillsSkillsSkillsSkillsSkillsSkillsSkillsSkills</h2>
+  </div>
+</section>
