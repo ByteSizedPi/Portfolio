@@ -1,4 +1,5 @@
 section {
+  width: 100%;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -7,8 +8,8 @@ section {
 
 #bg {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   transform: scale(1);
@@ -24,7 +25,7 @@ section {
   }
 
   img {
-    width: 100vw;
+    width: 100%;
     height: calc(100vh + 10rem);
     position: absolute;
     object-fit: cover;
@@ -34,14 +35,11 @@ section {
 }
 
 #text {
-  // box-sizing: border-box;
   height: calc(100vh - 7rem);
-  // width: calc(100vw - 2rem);
-  width: 100vw;
+  width: 100%;
   position: relative;
   transform: scale(1);
   padding: 3rem 0;
-  // overflow: hidden;
 
   #portrait {
     height: 20vh;
@@ -189,5 +187,32 @@ app-media-links {
   to {
     transform: translateY(0rem);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+// mobile
+@media only screen and (max-width: 768px) {
+  #text {
+    padding: 0;
+
+    #name,
+    #surname {
+      font-size: 3.75rem;
+      line-height: 3.75rem;
+      margin: 0;
+    }
+
+    #name {
+      margin-right: 1rem;
+    }
+
+    #developer {
+      font-size: 2.25rem;
+      margin-right: 0.75rem;
+    }
+
+    #profile {
+      font-size: 2.2rem;
+    }
   }
 }

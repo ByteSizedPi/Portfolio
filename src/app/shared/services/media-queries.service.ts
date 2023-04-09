@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class MediaQueriesService {
   public isMobile: boolean;
+  // '(min-width: 0px) and (max-width: 480px)',
   private queries: string[] = [
-    '(min-width: 0px) and (max-width: 480px)',
-    '(min-width: 481px) and (max-width: 768px)',
+    '(min-width: 0px) and (max-width: 768px)',
     '(min-width: 769px) and (max-width: 1024px)',
     '(min-width: 1025px) and (max-width: 1200px)',
     '(min-width: 1201px)',

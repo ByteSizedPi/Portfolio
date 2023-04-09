@@ -5,8 +5,10 @@
 }
 
 #skills {
+  margin-top: -3px;
   padding-top: 5rem;
   overflow: hidden;
+  background-color: var(--deep-blue);
 }
 
 .skills-text,
@@ -59,7 +61,7 @@
 }
 
 .scroll-container {
-  margin: 3rem 0 5rem 0;
+  padding: 3rem 0 5rem 0;
   // background-color: hsl(240, 33%, 30%);
   background: rgb(2, 0, 36);
   background: linear-gradient(

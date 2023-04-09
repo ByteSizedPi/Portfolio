@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Utils } from '../../shared/models/Utils';
+import { MediaQueriesService } from '../../shared/services/media-queries.service';
 import { NavigationService } from '../../shared/services/navigation.service';
 import liquidButton from './liquidButton';
 
@@ -9,7 +10,10 @@ import liquidButton from './liquidButton';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent extends Utils implements OnInit {
-  constructor(private navService: NavigationService) {
+  constructor(
+    private navService: NavigationService,
+    public media: MediaQueriesService
+  ) {
     super();
     liquidButton();
   }
