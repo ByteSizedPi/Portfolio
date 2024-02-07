@@ -59,7 +59,8 @@ export class HomeComponent extends Utils implements OnInit {
 
     // background animation
     bg.style.opacity = `${perc - 0.1}`;
-    bg.style.top = Math.floor((perc - 1) * bg.clientHeight * 0.5) + 'px';
+    if (this.mediaQ.isMobile)
+      bg.style.top = Math.floor((perc - 1) * bg.clientHeight * 0.5) + 'px';
     bg.style.transform = `scale(${1 + 0.4 * (1 - perc)})`;
 
     //text animation

@@ -44,12 +44,17 @@
       ></i>
     </div>
     <div class="row">
-      <a class="btn-liquid center" (click)="contact()">
+      <a
+        id="liquid"
+        class="btn-liquid center"
+        (click)="contact()"
+        *ngIf="!media.isMobile"
+      >
         <span class="inner center"> contact me </span>
       </a>
-      <!-- <button *ngIf="media.isMobile" id="contact">
+      <button *ngIf="media.isMobile" id="contact">
         <a (click)="contact()" target="_blank">contact me</a>
-      </button> -->
+      </button>
       <button>
         <a
           href="https://docs.google.com/document/d/10VW0vK2XUaqtabzpmFwGVRlcDDHXWMAd/edit?usp=sharing&ouid=103536070252261943960&rtpof=true&sd=true"

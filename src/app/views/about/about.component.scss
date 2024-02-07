@@ -120,12 +120,6 @@ button {
   }
 }
 
-// @media (min-width: 480px) {
-//   .btn-liquid {
-//     background: none;
-//   }
-// }
-
 @media (max-width: 768px) {
   img {
     display: none;
@@ -151,7 +145,7 @@ button {
     }
     p {
       margin: 0 1rem 0 1rem;
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
   }
 
@@ -159,25 +153,25 @@ button {
     padding: 0 0.5rem;
   }
 
-  button {
-    width: 9rem;
-    height: 50px;
-    margin: 0;
-    border-radius: 26px;
-    font: 700 1.2rem "Poppins", sans-serif;
-    cursor: pointer;
-    transition: background-color 0.1s, outline 0.1s, transform 0.05s;
+  // button {
+  //   width: 6rem;
+  //   height: 50px;
+  //   margin: 0;
+  //   border-radius: 26px;
+  //   a {
+  //     font-size: 0.8rem;
+  //   }
 
-    &:hover {
-      background-color: #15694763;
-      outline: 2px solid var(--green);
-    }
-  }
+  //   &:hover {
+  //     background-color: #15694763;
+  //     outline: 2px solid var(--green);
+  //   }
+  // }
 
-  #contact {
-    background-color: var(--green);
-    a {
-      color: var(--deep-blue);
-    }
-  }
+  // #contact {
+  //   background-color: var(--green);
+  //   a {
+  //     color: var(--deep-blue);
+  //   }
+  // }
 }
