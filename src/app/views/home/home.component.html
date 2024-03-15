@@ -1,8 +1,8 @@
 <section [scrollListener]="LINK.HOME" [id]="LINK.HOME">
-  <div id="bg">
-    <img imgLoad="./assets/images/backdrop.webp" (load)="load($event)" />
+  <div id="bg" #bg>
+    <img imgLoad="./assets/images/backdrop.webp" (load)="loaded$.set(true)" />
   </div>
-  <div id="text" class="center column" *ngIf="loaded">
+  <div id="text" class="center column" *ngIf="loaded$()">
     <img imgLoad="./assets/images/portrait.webp" id="portrait" />
     <div class="text-container center">
       <h1 id="name" class="row">
@@ -22,7 +22,15 @@
       </h1>
     </div>
     <div class="text-container center">
-      <h2 id="developer" data-text="Developer">Developer</h2>
+      <h2
+        id="developer"
+        #dev
+        (mousemove)="clipCircle(dev, $event)"
+        (mouseleave)="resetClip(dev)"
+        data-text="Developer"
+      >
+        Developer
+      </h2>
       <h2 id="profile">profile</h2>
     </div>
     <app-media-links></app-media-links>

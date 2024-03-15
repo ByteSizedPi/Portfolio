@@ -1,52 +1,63 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+  signal,
+} from '@angular/core';
+import { Subject } from 'rxjs';
 import { MediaQueriesService } from 'src/app/shared/services/media-queries.service';
 import { ScrollService } from 'src/app/shared/services/scroll.service';
-import { Utils } from '../../shared/models/Utils';
+import { LINK } from '../../shared/services/navigation.service';
 
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent extends Utils implements OnInit {
-  public loaded = false;
+export class HomeComponent implements OnDestroy {
+  @ViewChild('bg') bg: ElementRef<HTMLDivElement>;
+  LINK = LINK;
+  destroy$ = new Subject<void>();
+  loaded$ = signal(false);
+
+  clipCircle(el: HTMLElement, e: MouseEvent) {
+    let box = el.getBoundingClientRect();
+    let xoffset = e.clientX - box.left;
+    let yoffset = e.clientY - box.top;
+    let xperc = (100 * xoffset) / box.width;
+    let yperc = (100 * yoffset) / box.height;
+
+    el.style.setProperty(
+      '--centroid',
+      'circle(30% at ' + xperc + '% ' + yperc + '%)'
+    );
+  }
+
+  resetClip(el: HTMLElement) {
+    el.style.setProperty('--centroid', 'circle(0% at 0% 0%)');
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 
   constructor(
     private mediaQ: MediaQueriesService,
     private scrollService: ScrollService
-  ) {
-    super();
-  }
+  ) {}
 
-  circleClip() {
-    let dev = this.Id('developer');
-    let root = document.documentElement;
-    dev.addEventListener('mousemove', (e: MouseEvent) => {
-      let box = dev.getBoundingClientRect();
-      let xoffset = e.clientX - box.left;
-      let yoffset = e.clientY - box.top;
-      let xperc = (100 * xoffset) / box.width;
-      let yperc = (100 * yoffset) / box.height;
-
-      root.style.setProperty(
-        '--centroid',
-        'circle(30% at ' + xperc + '% ' + yperc + '%)'
-      );
-    });
-
-    dev.addEventListener('mouseleave', (e) => {
-      root.style.setProperty('--centroid', 'circle(0% at 0% 0%)');
-    });
-  }
-
-  ngOnInit() {
-    // const bg = this.Id('bg');
-    // const text = this.Id('text');
-    // setTimeout(() => {
-    //   this.scrollEvent();
-    //   window.addEventListener('scroll', this.scrollEvent.bind(this));
-    // }, 10);
-  }
+  // ngOnInit() {
+  // const bg = this.Id('bg');
+  // const text = this.Id('text');
+  // setTimeout(() => {
+  //   this.scrollEvent();
+  //   window.addEventListener('scroll', this.scrollEvent.bind(this));
+  // }, 10);
+  // }
 
   scrollBG() {
     if (this.mediaQ.isMobile) return;
@@ -74,8 +85,8 @@ export class HomeComponent extends Utils implements OnInit {
   load = (event: Event) => {
     this.loaded = true;
     setTimeout(() => {
-      this.scrollBG();
-      this.scrollService.onScroll.subscribe(() => this.scrollBG());
+      // this.scrollBG();
+      // this.scrollService.onScroll.subscribe(() => this.scrollBG());
     }, 0);
   };
 }
