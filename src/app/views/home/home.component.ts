@@ -3,10 +3,10 @@ import {
   Component,
   ElementRef,
   OnDestroy,
-  ViewChild,
-  signal,
+  viewChild,
 } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Id, constrain } from 'src/app/shared/models/Utils';
 import { MediaQueriesService } from 'src/app/shared/services/media-queries.service';
 import { ScrollService } from 'src/app/shared/services/scroll.service';
 import { LINK } from '../../shared/services/navigation.service';
@@ -18,10 +18,10 @@ import { LINK } from '../../shared/services/navigation.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnDestroy {
-  @ViewChild('bg') bg: ElementRef<HTMLDivElement>;
+  bg$ = viewChild.required<ElementRef<HTMLDivElement>>('bg');
   LINK = LINK;
   destroy$ = new Subject<void>();
-  loaded$ = signal(false);
+  loaded$ = new Subject<boolean>();
 
   clipCircle(el: HTMLElement, e: MouseEvent) {
     let box = el.getBoundingClientRect();
@@ -40,15 +40,18 @@ export class HomeComponent implements OnDestroy {
     el.style.setProperty('--centroid', 'circle(0% at 0% 0%)');
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-
   constructor(
     private mediaQ: MediaQueriesService,
     private scrollService: ScrollService
-  ) {}
+  ) {
+    this.loaded$.subscribe(() =>
+      this.scrollService.onScroll.subscribe(() => this.scrollBG())
+    );
+  }
+
+  ngOnDestroy() {
+    this.loaded$.complete();
+  }
 
   // ngOnInit() {
   // const bg = this.Id('bg');
@@ -61,32 +64,30 @@ export class HomeComponent implements OnDestroy {
 
   scrollBG() {
     if (this.mediaQ.isMobile) return;
-
-    const bg = this.Id('bg');
-    const text = this.Id('text');
+    const bg = this.bg$().nativeElement;
+    const text = Id('text');
 
     //set filter + img top
-    let perc = this.constrain(1 - window.scrollY / bg.clientHeight, 0, 1);
+    let perc = constrain(1 - window.scrollY / bg.clientHeight, 0, 1);
 
     // background animation
     bg.style.opacity = `${perc - 0.1}`;
-    if (this.mediaQ.isMobile)
-      bg.style.top = Math.floor((perc - 1) * bg.clientHeight * 0.5) + 'px';
+    bg.style.top = Math.floor((perc - 1) * bg.clientHeight * 0.5) + 'px';
     bg.style.transform = `scale(${1 + 0.4 * (1 - perc)})`;
 
     //text animation
-    perc = this.constrain(window.scrollY / bg.clientHeight, 0, 1);
+    perc = constrain(window.scrollY / bg.clientHeight, 0, 1);
     text.style.opacity = `${1 - perc * 1.5}`;
     text.style.transform = `scale(${1 + 0.4 * perc}) translateY(${
       perc * -5
     }rem)`;
   }
 
-  load = (event: Event) => {
-    this.loaded = true;
-    setTimeout(() => {
-      // this.scrollBG();
-      // this.scrollService.onScroll.subscribe(() => this.scrollBG());
-    }, 0);
-  };
+  // load = (event: Event) => {
+  //   // this.loaded = true;
+  //   setTimeout(() => {
+  //     // this.scrollBG();
+  //     // this.scrollService.onScroll.subscribe(() => this.scrollBG());
+  //   }, 0);
+  // };
 }

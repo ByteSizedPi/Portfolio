@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { Utils } from '../../shared/models/Utils';
+import { onLoad } from '../../shared/models/Utils';
+import { LINK } from '../../shared/services/navigation.service';
 
 @Component({
   selector: 'contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent extends Utils {
+export class ContactComponent {
   show = false;
   email = 'johann12venter@gmail.com';
   number = '+27 64 905 6201';
@@ -14,10 +15,8 @@ export class ContactComponent extends Utils {
   linkedin = 'https://www.linkedin.com/in/johanventer0/';
   instagram = 'https://www.instagram.com/johanventer1/';
 
-  constructor() {
-    super();
-  }
-
+  onLoad = onLoad;
+  LINK = LINK;
   copy = (text: string) => {
     navigator.clipboard.writeText(text);
     this.show = true;

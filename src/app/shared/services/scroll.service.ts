@@ -1,6 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { fromEvent, Observable } from 'rxjs';
-import { Utils } from '../models/Utils';
+import { Observable, fromEvent } from 'rxjs';
 
 export enum LINK {
   HOME = 'home',
@@ -13,7 +12,7 @@ export enum LINK {
 @Injectable({
   providedIn: 'root',
 })
-export class ScrollService extends Utils {
+export class ScrollService {
   public onScroll: Observable<any> = fromEvent(window, 'scroll');
   public events: { [key in LINK]: EventEmitter<LINK> } = {
     [LINK.HOME]: new EventEmitter(),
@@ -24,7 +23,6 @@ export class ScrollService extends Utils {
   };
 
   constructor() {
-    super();
     // fromEvent(window, 'scroll').subscribe(() => {
     //   this.procedures.forEach((procedure) => procedure());
     // });

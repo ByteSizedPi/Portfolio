@@ -26,17 +26,16 @@
     </div>
 
     <p>
-      I am <b>Johan Venter</b>, an aspiring developer with a Bachelor’s degree
-      in <b>Computer Science and Mathematics</b>. I am currently studying toward
-      a BSc. Honours degree (Computer Science and Information Systems) from the
-      North West University, and plan to register for my
-      <b>Masters's degree</b> in 2023. I am a lecturing assistant at the
-      Computer Science department and tutor Mathematics and Natural Sciences at
-      the SETH academy at High School Ferdinand Postma. As a keen
-      <b>squash player</b>, I represent the NWU and my province at IPT’s as a
-      member of the SACD team. Formal instruction in music and exploring
-      photography have trained me in <b>visual design and user experience</b>.
-      My primary interest is Full Stack Development.
+      My Name is <b>Johan</b>, an aspiring developer with an BSc Hons in
+      <b>Computer Science and Information Systems</b>. I am currently studying
+      toward a Master's degree from the North West University. I have a few
+      years of experience as a lecturer and a tutor and an active individual who
+      enjoys staying physically fit and participating in sports, particularly
+      <b>squash</b>, where I proudly represent my university and province in
+      competitive tournaments. When I'm not on the court, I'm diving into the
+      world of technology. I know my way around various programming languages,
+      frameworks, and tech tools. Photography as a hobby has shaped an eye for
+      aesthetics and design.
     </p>
     <div class="tag-close">
       <i class="fa-solid fa-chevron-left"></i>/info<i
@@ -48,19 +47,20 @@
         id="liquid"
         class="btn-liquid center"
         (click)="contact()"
-        *ngIf="!media.isMobile"
+        *ngIf="!(showButton$ | async)"
       >
         <span class="inner center"> contact me </span>
       </a>
-      <button *ngIf="media.isMobile" id="contact">
+      <button *ngIf="showButton$ | async" id="contact">
         <a (click)="contact()" target="_blank">contact me</a>
       </button>
       <button>
         <a
           href="https://docs.google.com/document/d/10VW0vK2XUaqtabzpmFwGVRlcDDHXWMAd/edit?usp=sharing&ouid=103536070252261943960&rtpof=true&sd=true"
           target="_blank"
-          >my cv</a
         >
+          my cv
+        </a>
       </button>
     </div>
   </span>

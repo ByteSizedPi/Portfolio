@@ -1,14 +1,16 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MediaQueriesService } from 'src/app/shared/services/media-queries.service';
 import { ScrollService } from 'src/app/shared/services/scroll.service';
-import { Utils } from '../../shared/models/Utils';
-
+import { onLoad, query, queryAll } from '../../shared/models/Utils';
+import { LINK } from '../../shared/services/navigation.service';
 @Component({
   selector: 'skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
 })
-export class SkillsComponent extends Utils implements OnInit, AfterViewInit {
+export class SkillsComponent implements OnInit, AfterViewInit {
+  LINK = LINK;
+  onLoad = onLoad;
   skills = [
     undefined,
     undefined,
@@ -91,16 +93,14 @@ export class SkillsComponent extends Utils implements OnInit, AfterViewInit {
   constructor(
     private mediaQueries: MediaQueriesService,
     private scrollService: ScrollService
-  ) {
-    super();
-  }
+  ) {}
 
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.scrollEvent();
     let sub = this.scrollService.events['skills'].subscribe(() => {
-      this.queryAll('.card').forEach((skill, i: number) => {
+      queryAll('.card').forEach((skill, i: number) => {
         setTimeout(() => {
           skill.style.transform = 'scale(1)';
         }, i * 100);
@@ -112,7 +112,7 @@ export class SkillsComponent extends Utils implements OnInit, AfterViewInit {
 
   addEventListeners() {
     let isHovering = false;
-    this.queryAll('.card')
+    queryAll('.card')
       .filter((el, i: number) => this.indices.includes(i))
       .forEach((element: HTMLElement, i: number) => {
         element.addEventListener('mouseleave', (e: MouseEvent) => {
@@ -143,8 +143,8 @@ export class SkillsComponent extends Utils implements OnInit, AfterViewInit {
   }
 
   scrollEvent() {
-    const skills = this.query('.skills-text');
-    const skills2 = this.query('.skills-text-rotated');
+    const skills = query('.skills-text');
+    const skills2 = query('.skills-text-rotated');
 
     window.addEventListener('scroll', () => {
       let top = skills.getBoundingClientRect().top;

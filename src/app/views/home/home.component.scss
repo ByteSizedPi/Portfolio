@@ -83,7 +83,12 @@ section {
     div {
       @for $i from 1 through 5 {
         &:nth-of-type(#{$i}) {
-          animation: bob-in-color 0.5s #{$i * 100}ms forwards cubic-bezier(0.47, 1.64, 0.41, 0.8);
+          animation: bob-in-color
+            0.5s
+            #{$i *
+            100}ms
+            forwards
+            cubic-bezier(0.47, 1.64, 0.41, 0.8);
         }
       }
     }
@@ -95,7 +100,12 @@ section {
     div {
       @for $i from 1 through 6 {
         &:nth-of-type(#{$i}) {
-          animation: bob-in-color 0.5s #{($i + 5) * 100}ms forwards cubic-bezier(0.47, 1.64, 0.41, 0.8);
+          animation: bob-in-color
+            0.5s
+            #{($i + 5) *
+            100}ms
+            forwards
+            cubic-bezier(0.47, 1.64, 0.41, 0.8);
         }
       }
     }

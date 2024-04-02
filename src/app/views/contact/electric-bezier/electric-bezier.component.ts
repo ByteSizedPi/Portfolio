@@ -1,16 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Utils } from '../../../shared/models/Utils';
+import { Id } from '../../../shared/models/Utils';
 
 @Component({
   selector: 'electric-bezier',
   templateUrl: './electric-bezier.component.html',
   styleUrls: ['./electric-bezier.component.scss'],
 })
-export class ElectricBezierComponent extends Utils implements OnInit {
-  constructor() {
-    super();
-  }
-
+export class ElectricBezierComponent implements OnInit {
   ngOnInit(): void {
     // window.requestAnimFrame = function () {
     //   return (
@@ -26,7 +22,7 @@ export class ElectricBezierComponent extends Utils implements OnInit {
     // };
 
     const init = (elemid: string) => {
-      let canvas = this.Id(elemid) as HTMLCanvasElement;
+      let canvas = Id(elemid) as HTMLCanvasElement;
       let c = canvas.getContext('2d') as CanvasRenderingContext2D;
       return { c: c, canvas: canvas };
     };
@@ -34,7 +30,7 @@ export class ElectricBezierComponent extends Utils implements OnInit {
     window.onload = () => {
       let { c, canvas } = init('canvas');
       let w = (canvas.width = window.innerWidth);
-      let h = (canvas.height = this.Id('contact').offsetHeight);
+      let h = (canvas.height = Id('contact').offsetHeight);
       let mouse: Vec2D = { x: 0, y: 0 };
       let last_mouse: Vec2D = { x: 0, y: 0 };
 
@@ -236,7 +232,7 @@ export class ElectricBezierComponent extends Utils implements OnInit {
         last_target.y = target.y;
       };
 
-      this.Id('contact').addEventListener(
+      Id('contact').addEventListener(
         'mousemove',
         (e) => {
           let rect = canvas.getBoundingClientRect();

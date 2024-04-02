@@ -1,36 +1,55 @@
-import { Component, OnInit } from '@angular/core';
-import { Utils } from '../../shared/models/Utils';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { delay, distinctUntilChanged, filter, map, startWith } from 'rxjs';
+import { Id } from '../../shared/models/Utils';
 import { MediaQueriesService } from '../../shared/services/media-queries.service';
-import { NavigationService } from '../../shared/services/navigation.service';
-import liquidButton from './liquidButton';
+import {
+  LINK,
+  NavigationService,
+} from '../../shared/services/navigation.service';
+import { ScrollService } from '../../shared/services/scroll.service';
 
 @Component({
   selector: 'about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent extends Utils implements OnInit {
+export class AboutComponent {
+  LINK = LINK;
+  initialized = false;
+  showButton$ = this.scroll.onScroll.pipe(
+    startWith(true),
+    map(() => this.media.isMobile),
+    distinctUntilChanged()
+  );
   constructor(
     private navService: NavigationService,
-    public media: MediaQueriesService
+    public media: MediaQueriesService,
+    private scroll: ScrollService
   ) {
-    super();
-    liquidButton();
-  }
+    this.navService.navEvent
+      .pipe(filter((link) => link === 'about'))
+      .subscribe(() => {
+        ['computer-animation', 'about-content'].map(Id).forEach((el) => {
+          el.style.opacity = '1';
+        });
+      });
 
-  ngOnInit(): void {
-    this.navService.navEvent.subscribe((link) => {
-      if (link === 'about') this.loadIn();
-    });
-  }
-
-  loadIn() {
-    ['computer-animation', 'about-content'].map(this.Id).forEach((el) => {
-      el.style.opacity = '1';
-    });
+    this.showButton$
+      .pipe(
+        filter((s) => !s),
+        delay(200)
+      )
+      .subscribe(() => {
+        if (!this.initialized) {
+          console.log('init');
+          // liquidButton();
+          this.initialized = true;
+        }
+      });
   }
 
   contact() {
-    this.Id('contact-link').click();
+    Id('contact-link').click();
   }
 }

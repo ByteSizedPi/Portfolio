@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Utils } from '../../shared/models/Utils';
+import { onLoad } from '../../shared/models/Utils';
+import { LINK } from '../../shared/services/navigation.service';
 import projects from './projects.json';
 
 export type Project = {
@@ -15,9 +16,8 @@ export type Project = {
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent extends Utils {
+export class ProjectsComponent {
   public projects: Project[] = projects;
-  constructor() {
-    super();
-  }
+  onLoad = onLoad;
+  LINK = LINK;
 }

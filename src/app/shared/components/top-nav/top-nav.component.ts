@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Utils } from '../../models/Utils';
+import { Id, onLoad } from '../../models/Utils';
 import { NavigationService } from '../../services/navigation.service';
 import { LINK } from '../../services/scroll.service';
 
@@ -8,8 +8,8 @@ import { LINK } from '../../services/scroll.service';
   templateUrl: './top-nav.component.html',
   styleUrls: ['./top-nav.component.scss'],
 })
-export class TopNavComponent extends Utils {
-  Array = Array;
+export class TopNavComponent {
+  onLoad = onLoad;
   prevLink: LINK = LINK.HOME;
   navOpen: boolean = false;
 
@@ -24,7 +24,6 @@ export class TopNavComponent extends Utils {
   altLinks: string[] = Object.values(LINK);
 
   constructor(public nav: NavigationService) {
-    super();
     // this.setActive(this.prevLink);
     this.nav.navEvent.subscribe((link) => {
       this.setActive(link);
@@ -36,9 +35,9 @@ export class TopNavComponent extends Utils {
     // if (this.prevLink == link) return;
 
     this.links.set(this.prevLink, false);
-    this.Id(`${this.prevLink}-link`).classList.remove('link-active');
+    Id(`${this.prevLink}-link`).classList.remove('link-active');
 
     this.links.set((this.prevLink = link), true);
-    this.Id(`${this.prevLink}-link`).classList.add('link-active');
+    Id(`${this.prevLink}-link`).classList.add('link-active');
   }
 }
