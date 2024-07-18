@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Id, onLoad } from '../../models/Utils';
-import { NavigationService } from '../../services/navigation.service';
-import { LINK } from '../../services/scroll.service';
+import { LINK, NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'top-nav',
@@ -10,18 +9,17 @@ import { LINK } from '../../services/scroll.service';
 })
 export class TopNavComponent {
   onLoad = onLoad;
-  prevLink: LINK = LINK.HOME;
+  prevLink: LINK = 'home';
   navOpen: boolean = false;
 
   links = new Map<LINK, boolean>()
-    .set(LINK.HOME, true)
-    .set(LINK.ABOUT, false)
-    .set(LINK.SKILLS, false)
-    .set(LINK.PROJECTS, false)
-    .set(LINK.CONTACT, false);
+    .set('home', true)
+    .set('about', false)
+    .set('skills', false)
+    .set('projects', false)
+    .set('contact', false);
 
-  // altLinks = ['home', 'about', 'projects', 'contact'];
-  altLinks: string[] = Object.values(LINK);
+  altLinks = ['home', 'about', 'skills', 'projects', 'contact'];
 
   constructor(public nav: NavigationService) {
     // this.setActive(this.prevLink);

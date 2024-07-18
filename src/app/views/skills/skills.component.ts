@@ -2,24 +2,16 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MediaQueriesService } from 'src/app/shared/services/media-queries.service';
 import { ScrollService } from 'src/app/shared/services/scroll.service';
 import { onLoad, query, queryAll } from '../../shared/models/Utils';
-import { LINK } from '../../shared/services/navigation.service';
 @Component({
   selector: 'skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent implements OnInit, AfterViewInit {
-  LINK = LINK;
   onLoad = onLoad;
+  indices = [21, 22];
+
   skills = [
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
     {
       name: 'Angular',
       link: 'angular.svg',
@@ -43,9 +35,7 @@ export class SkillsComponent implements OnInit, AfterViewInit {
         { name: 'Javascript', link: 'javascript.svg', color: '#f0dc50' },
       ],
     },
-    undefined,
-    undefined,
-    undefined,
+
     {
       name: 'Database',
       link: 'database.svg',
@@ -79,16 +69,15 @@ export class SkillsComponent implements OnInit, AfterViewInit {
         { name: 'Java', link: 'java.svg', color: '#e76f00' },
       ],
     },
+  ].map((skill, i) => {
+    return {
+      ...skill,
+      idx: this.indices[i],
+    };
+  });
 
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-  ];
-
-  boxes = [0, 0, 0, 0, 0, 0];
-  rows = [0, 0, 0, 0];
-  indices = [8, 9, 13, 14, 15];
+  boxes = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  rows = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   constructor(
     private mediaQueries: MediaQueriesService,

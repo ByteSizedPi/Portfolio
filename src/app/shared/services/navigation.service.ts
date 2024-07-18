@@ -1,17 +1,12 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { filter } from 'rxjs';
 
-export enum LINK {
-  HOME = 'home',
-  ABOUT = 'about',
-  SKILLS = 'skills',
-  PROJECTS = 'projects',
-  CONTACT = 'contact',
-}
+export type LINK = 'home' | 'about' | 'skills' | 'projects' | 'contact';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NavigationService {
   navEvent: EventEmitter<LINK> = new EventEmitter();
-  constructor() {}
+  ifNav = (link: LINK) => this.navEvent.pipe(filter((l) => l === link));
 }

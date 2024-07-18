@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { onLoad } from '../../shared/models/Utils';
-import { LINK } from '../../shared/services/navigation.service';
 import projects from './projects.json';
 
 export type Project = {
@@ -19,5 +18,4 @@ export type Project = {
 export class ProjectsComponent {
   public projects: Project[] = projects;
   onLoad = onLoad;
-  LINK = LINK;
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { onLoad } from '../../shared/models/Utils';
-import { LINK } from '../../shared/services/navigation.service';
 
 @Component({
   selector: 'contact',
@@ -16,7 +15,6 @@ export class ContactComponent {
   instagram = 'https://www.instagram.com/johanventer1/';
 
   onLoad = onLoad;
-  LINK = LINK;
   copy = (text: string) => {
     navigator.clipboard.writeText(text);
     this.show = true;

@@ -32,6 +32,8 @@ export default () => {
      * Get mouse direction
      */
     function mouseDirection(e: any) {
+      if (media.isMobile) return;
+
       if (mouseX < e.pageX) mouseDirectionX = 1;
       else if (mouseX > e.pageX) mouseDirectionX = -1;
       else mouseDirectionX = 0;
@@ -179,7 +181,6 @@ export default () => {
       // rAF
 
       let rafID = requestAnimationFrame(renderCanvas);
-      if (media.isMobile) return;
 
       // Clear scene
       context.clearRect(0, 0, $canvas.width(), $canvas.height());

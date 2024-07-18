@@ -9,6 +9,7 @@
   padding-top: 5rem;
   overflow: hidden;
   background-color: var(--deep-blue);
+  // border: 1px solid yellow;
 }
 
 .skills-text,
@@ -28,7 +29,13 @@
     -webkit-text-stroke: 8px transparent;
     color: transparent;
 
-    background: linear-gradient(90deg, var(--lilac) 0%, var(--green) 33.3%, var(--green) 66.7%, var(--lilac) 100%);
+    background: linear-gradient(
+      90deg,
+      var(--lilac) 0%,
+      var(--green) 33.3%,
+      var(--green) 66.7%,
+      var(--lilac) 100%
+    );
     background-size: 200% 100%;
     animation: scroll-bg 4s forwards infinite ease-in-out;
     background-clip: text;
@@ -61,19 +68,16 @@
 }
 
 .scroll-container {
-  padding: 3rem 0 5rem 0;
-  // background-color: hsl(240, 33%, 30%);
-  background: rgb(2, 0, 36);
+  margin-top: 5rem;
   background: linear-gradient(
-      0deg,
+      180deg,
       var(--deep-blue) 0%,
-      var(--deep-blue) 10%,
+      var(--deep-blue) 8rem,
       #19193200 50%,
-      var(--deep-blue) 85%,
+      var(--deep-blue) calc(100% - 8rem),
       var(--deep-blue) 100%
     ),
     linear-gradient(45deg, var(--lilac) 0%, var(--green) 100%);
-  // height: calc(100% - 10rem);
   overflow: hidden;
 }
 

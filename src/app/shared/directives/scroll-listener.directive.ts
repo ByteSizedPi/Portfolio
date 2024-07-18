@@ -26,7 +26,6 @@ export class ScrollListenerDirective {
         this.scrollService.events[this.scrollListener].emit(
           this.scrollListener
         );
-        console.log(this.scrollListener);
       });
 
     // fromEvent(document, 'scroll')

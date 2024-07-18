@@ -1,4 +1,4 @@
-<section class="center" [scrollListener]="LINK.ABOUT" [id]="LINK.ABOUT">
+<section class="center" scrollListener="about" id="about">
   <img
     src="./assets/images/computer_animation.gif"
     alt="computer_animation"
@@ -28,32 +28,25 @@
     <p>
       My Name is <b>Johan</b>, an aspiring developer with an BSc Hons in
       <b>Computer Science and Information Systems</b>. I am currently studying
-      toward a Master's degree from the North West University. I have a few
-      years of experience as a lecturer and a tutor and an active individual who
-      enjoys staying physically fit and participating in sports, particularly
-      <b>squash</b>, where I proudly represent my university and province in
-      competitive tournaments. When I'm not on the court, I'm diving into the
-      world of technology. I know my way around various programming languages,
-      frameworks, and tech tools. Photography as a hobby has shaped an eye for
-      aesthetics and design.
+      toward a <b>Master's degree</b> from the North West University. I have a
+      few years of experience as a <b>lecturer</b> and a tutor and an active
+      individual who enjoys staying physically fit and participating in sports,
+      particularly <b>squash</b>, where I proudly represent my university and
+      province in competitive tournaments. When I'm not on the court, I'm diving
+      into the world of technology. I know my way around various programming
+      languages, frameworks, and tech tools. <b>Photography</b> as a hobby has
+      shaped an eye for aesthetics and design.
     </p>
     <div class="tag-close">
-      <i class="fa-solid fa-chevron-left"></i>/info<i
+      <i class="fa-solid fa-chevron-left"> </i>/info<i
         class="fa fa-chevron-right"
-      ></i>
+      >
+      </i>
     </div>
     <div class="row">
-      <a
-        id="liquid"
-        class="btn-liquid center"
-        (click)="contact()"
-        *ngIf="!(showButton$ | async)"
-      >
+      <a id="liquid" class="btn-liquid center" (click)="contact()">
         <span class="inner center"> contact me </span>
       </a>
-      <button *ngIf="showButton$ | async" id="contact">
-        <a (click)="contact()" target="_blank">contact me</a>
-      </button>
       <button>
         <a
           href="https://docs.google.com/document/d/10VW0vK2XUaqtabzpmFwGVRlcDDHXWMAd/edit?usp=sharing&ouid=103536070252261943960&rtpof=true&sd=true"
